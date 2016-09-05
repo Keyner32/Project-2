@@ -1,34 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.gabekeyner.project_2.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/my_drinks"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/explore"
+        android:layout_marginBottom="109dp"
+        android:text="@string/my_drinks"
+        android:textSize="30sp"
+        android:textStyle="italic"/>
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_main" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/explore"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:layout_alignTop="@+id/my_drinks"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="73dp"
+        android:text="@string/explore"
+        android:textSize="30sp"
+        android:textStyle="italic"/>
 
-</android.support.design.widget.CoordinatorLayout>
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="60sp"
+        android:textStyle="bold|italic"
+        android:layout_above="@+id/my_drinks"
+        android:layout_alignStart="@+id/my_drinks"
+        android:layout_marginBottom="100dp"
+        android:text="WHAT&apos;LL IT BE. . ."/>
+</RelativeLayout>

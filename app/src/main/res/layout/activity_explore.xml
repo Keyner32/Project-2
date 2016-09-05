@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.gabekeyner.project_2.Explore"
+    >
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/explore"
+        android:id="@+id/explore_drinks"
+        android:layout_marginTop="43dp"
+        android:textStyle="bold|italic"
+        android:textSize="50sp"
+        android:textAlignment="textEnd"
+        android:background="@color/colorAccent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@mipmap/ic_launcher_beer"
+        android:id="@+id/beerBtn"
+        android:layout_alignBottom="@+id/BeerView"
+        android:layout_toStartOf="@+id/BeerView"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Beer"
+        android:textSize="50sp"
+        android:id="@+id/BeerView"
+        android:layout_marginStart="44dp"
+        android:textStyle="bold|italic"
+        android:layout_above="@+id/wineBtn"
+        android:layout_toEndOf="@+id/wineBtn"
+        android:layout_marginBottom="57dp"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@mipmap/ic_launcher_wine"
+        android:id="@+id/wineBtn"
+        android:layout_marginBottom="41dp"
+        android:layout_above="@+id/MixedView"
+        android:layout_alignStart="@+id/explore_drinks"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Wine"
+        android:textSize="50sp"
+        android:id="@+id/wineView"
+        android:textStyle="bold|italic"
+        android:layout_alignTop="@+id/wineBtn"
+        android:layout_alignStart="@+id/BeerView"/>
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@mipmap/ic_launcher_mixed"
+        android:id="@+id/mixedDrinksBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/wineBtn"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Mixed Drinks"
+        android:textSize="50sp"
+        android:id="@+id/MixedView"
+        android:textStyle="bold|italic"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/wineView"/>
+</RelativeLayout>

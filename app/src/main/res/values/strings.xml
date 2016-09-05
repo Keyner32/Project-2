@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Project-2</string>
     <string name="action_settings">Settings</string>
+    <string name="my_drinks">My Drinks</string>
+    <string name="explore">Explore</string>
+    <string name="beer">Beers</string>
+    <string name="wines">Wines</string>
+    <string name="mixed_drinks">Mixed Drinks</string>
+
+
 </resources>
