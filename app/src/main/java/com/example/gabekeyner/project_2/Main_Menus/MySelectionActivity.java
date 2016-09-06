@@ -1,7 +1,9 @@
-package com.example.gabekeyner.project_2;
+package com.example.gabekeyner.project_2.Main_Menus;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.gabekeyner.project_2.R;
 
 public class MySelectionActivity extends AppCompatActivity {
 

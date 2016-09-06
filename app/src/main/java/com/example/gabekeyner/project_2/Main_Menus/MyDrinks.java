@@ -1,9 +1,11 @@
-package com.example.gabekeyner.project_2;
+package com.example.gabekeyner.project_2.Main_Menus;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.gabekeyner.project_2.R;
 
 public class MyDrinks extends AppCompatActivity implements View.OnClickListener {
 

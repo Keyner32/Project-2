@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.gabekeyner.project_2.Main_Menus.Explore;
+import com.example.gabekeyner.project_2.Main_Menus.MyDrinks;
+
 /*TODO REQUIREMENTS
 -[]Have a theme and display data related to that theme.
 -[]Allow the user to search by at least three different search criterias

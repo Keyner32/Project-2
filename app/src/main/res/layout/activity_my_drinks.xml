@@ -7,7 +7,7 @@
     android:paddingBottom="100dp"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.gabekeyner.project_2.MyDrinks">
+    tools:context=".Main_Menus.MyDrinks">
 
 
     <Button
