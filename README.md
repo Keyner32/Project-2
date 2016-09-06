@@ -9,18 +9,18 @@ This application will let the user find about a variety of drinks in world. You 
 ## Screen Shots
 
 Have you ever went out for drinks and didn't know what to order? Find yourself getting something completely random and ended up disliking it. Wouldn't you want to know what actually goes into your drinks made at the bar instead saying " What's in this drink ".
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example.
+
 
 ## Motivation
 Being a young adult I've found myself inexperienced when going out to bars or places to get some drinks with friends or co-workers. I wanted to create an application that would educate the user with popular drinks. These quick information guide to what these drinks were, what was in them, and what other people thought about them. This would help make my decision smarter and happier with what I would received.
-[A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.]
+
 
 ## Installation
 
-Provide code examples and explanations of how to get the project.
 
 ## Entity relationship diagram 
 
+## Prototypes
 
 ## User Stories
 
