@@ -15,9 +15,21 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MyDrinks"/>
-        <activity android:name=".Explore">
+        <activity android:name=".MyDrinks"
+                  android:label="@string/my_drinks"/>
+
+        <activity
+            android:name=".Explore"
+            android:label="@string/explore"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
         </activity>
+
         <activity android:name=".MySelectionActivity">
         </activity>
         <activity android:name=".ExploreSelection">
