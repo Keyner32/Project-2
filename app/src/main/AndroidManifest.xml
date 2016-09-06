@@ -3,6 +3,8 @@
           package="com.example.gabekeyner.project_2">
 
     <application
+
+android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label=""
@@ -15,11 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MyDrinks"
-                  android:label="@string/my_drinks"/>
+        <activity
+            android:name=".Main_Menus.MyDrinks"
+            android:label="@string/my_drinks"/>
 
         <activity
-            android:name=".Explore"
+            android:name=".Main_Menus.Explore"
             android:label="@string/explore"
             android:launchMode="singleTop">
             <intent-filter>
@@ -30,10 +33,13 @@
                 android:resource="@xml/searchable"/>
         </activity>
 
-        <activity android:name=".MySelectionActivity">
+        <activity android:name=".Main_Menus.MySelectionActivity">
         </activity>
-        <activity android:name=".ExploreSelection">
+        <activity android:name=".Main_Menus.ExploreSelection">
         </activity>
+
+
+
     </application>
 
 </manifest>
