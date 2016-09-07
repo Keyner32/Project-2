@@ -5,13 +5,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.gabekeyner.project_2.Main_Menus.Explore;
 import com.example.gabekeyner.project_2.Main_Menus.MyDrinks;
 
 /*TODO REQUIREMENTS
--[]Have a theme and display data related to that theme.
+-[x]Have a theme and display data related to that theme.
 -[]Allow the user to search by at least three different search criterias
     Examples for a shopping app: name, price, availability, size, description, etc.
 -[]Show results in separate entries/pages to the user, including descriptions, images, and whatever else you like
@@ -20,7 +21,7 @@ import com.example.gabekeyner.project_2.Main_Menus.MyDrinks;
 -[]Incorporate Object Oriented principles into your app
     e.g. create a class that defines all of the database entries and more specific classes that extend it.
 -[*]Contain code comments, explaining the functionality behind sections of code
--[]Include at least 4 user stories in the readme.md
+-[*]Include at least 4 user stories in the readme.md
 -[]Include espresso tests for your app
 -[]Ensure that you add a sufficient number of tests for the features of each screen of your app
 
@@ -38,18 +39,27 @@ Bonus:
 public class MainActivity extends AppCompatActivity {
 
     //Declare your buttons
+    ImageView imageView;
 
     Button myDrinksBtn;
     Button exploreBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//
+//        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+//        Picasso.with(this)
+//                .load("http://holyground32.blogspot.com")
+//                .into(imageView);
+
 
 
 //TODO Set on click listener to your {My_drinks Button}
 //TODO and {Explore Button} to start those separate activities
+
 
 
         myDrinksBtn = (Button) findViewById(R.id.my_drinks);

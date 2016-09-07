@@ -14,9 +14,9 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
     //TODO Set up a universal database for all of your drinks.
 
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 1;
     public static final String DB_NAME = "WHAT'LL_IT_BE.db";
-    public static final String TABLE_NAME = "DRINKS";
+    public static final String TABLE_NAME = "DRINKS2";
 
     public static final String COL_ID = "_id";
     public static final String COL_ALCOHOL_TYPE = "alcohol_type";
@@ -24,7 +24,7 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
     public static final String COL_ABV = "ABV";
     public static final String COL_DESCRIPTION = "drink_description";
 
-    public static final String[] COLUMN_SELECTION = {COL_ALCOHOL_TYPE, COL_NAME, COL_ABV};
+    public static final String[] COLUMN_SELECTION = {COL_ID,COL_ALCOHOL_TYPE, COL_NAME, COL_ABV,COL_DESCRIPTION};
 
     private static final String SQL_CREATE_DRINKS = " CREATE TABLE " + TABLE_NAME + " " + "( "+
             COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -48,6 +48,18 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_DRINKS);
 
+        insert(db,1,"beer","corona",2.0,"mexican beer");
+        insert(db,2,"beer","budlight",1.0,"american beer");
+        insert(db,3,"beer","coors",3.0,"american beer");
+        insert(db,4,"beer","805",4.0,"imported beer");
+        insert(db,5,"beer","guiness",3.0,"british beer");
+        insert(db,6,"beer","sapparo",2.0,"chinese beer");
+
+        insert(db,7,"wine","Justin",6.0,"Cab");
+        insert(db,8,"wine","Clu de Bois",4.0,"European");
+        insert(db,9,"wine","Justin",6.0,"Cab");
+
+
     }
 
     @Override
@@ -66,14 +78,29 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         return mInstance;
 
     }
+    public void insert(SQLiteDatabase db, int id, String type, String name, double abv, String desc){
+        ContentValues values = new ContentValues();
 
-    public int insert(String alcoholType, String name, Double ABV, String description) {
+        values.put(COL_ID, id);
+        values.put(COL_ALCOHOL_TYPE,type);
+        values.put(COL_NAME,name);
+        values.put(COL_ABV,abv);
+        values.put(COL_DESCRIPTION,desc);
+
+        db.insert(TABLE_NAME, null, values);
+
+    }
+
+
+    public int addItem(String alcoholType, String name, Double ABV, String description) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
+
         values.put(COL_ALCOHOL_TYPE, alcoholType);
         values.put(COL_NAME, name);
         values.put(COL_ABV, String.valueOf(ABV));
         values.put(COL_DESCRIPTION, description);
+
         long id = db.insert(TABLE_NAME, null, values);
 
         return ((int) id);
@@ -127,16 +154,15 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
      *
      * @return List Beer Names/ABV/Description
      */
-    public Cursor getBeers() {
-// public List<String> getBeers ()
-//        List<String> beers = new ArrayList<>();
-        SQLiteDatabase db = getReadableDatabase();
+    public Cursor getBeers(String query) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
 
         //Build a query
         Cursor cursor = db.query(TABLE_NAME,
                 COLUMN_SELECTION,
-                null,
-                null,
+                COL_ALCOHOL_TYPE + " LIKE ?",
+                new String[]{ query },
                 null,
                 null,
                 null,

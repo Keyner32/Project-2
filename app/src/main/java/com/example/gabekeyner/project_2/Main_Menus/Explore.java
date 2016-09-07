@@ -23,6 +23,7 @@ public class Explore extends AppCompatActivity implements View.OnClickListener {
         wineBtn.setOnClickListener(this);
         mixedDrinkBtn.setOnClickListener(this);
 
+
     }
 
     @Override

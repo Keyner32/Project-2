@@ -1,5 +1,6 @@
 package com.example.gabekeyner.project_2.Main_Menus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -29,24 +30,23 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-//
-//            // show table that has saved beer choices
-//            case R.id.beerBtn:
-//                Intent intent = new Intent(this, "put your universal class here for beeres");
-//                startActivity(intent);
-//                break;
-//
-//            // show table that has saved wine choices
-//            case R.id.wineBtn:
-//                Intent intent1 = new Intent(this,"put your universal class here for wines");
-//                startActivity(intent1);
-//                break;
-//
-//            // show table that has saved mixed drinks choices
-//            case R.id.mixedDrinksBtn:
-//                Intent intent2 = new Intent(this,"put your universal class here for mixed" );
-//                startActivity(intent2);
-//                break;
+
+            // show table that has to do everything with beer
+            case R.id.beerBtn:
+                Intent intent = new Intent(MyDrinks.this, MySelectionActivity.class);
+                startActivity(intent);
+
+
+                // show table that has to do everything with wine
+            case R.id.wineBtn:
+                Intent intent1 = new Intent(MyDrinks.this, MySelectionActivity.class);
+                startActivity(intent1);
+
+
+                // show table that has to do everything with mixed drinks
+            case R.id.mixedDrinksBtn:
+                Intent intent2 = new Intent(MyDrinks.this, MySelectionActivity.class);
+                startActivity(intent2);
         }
     }
 

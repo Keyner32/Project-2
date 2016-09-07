@@ -4,19 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="100dp"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Main_Menus.MyDrinks">
 
 
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:background="@drawable/project_my_drinks"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentEnd="true">-->
+    <!--</ImageView>-->
     <Button
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="@mipmap/ic_launcher_beer"
         android:id="@+id/beerBtn"
         android:layout_alignBottom="@+id/BeerView"
-        android:layout_toStartOf="@+id/BeerView"/>
+        android:layout_toStartOf="@+id/BeerView"
+        android:background="@mipmap/ic_launcher_beer"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,7 +34,8 @@
         android:textStyle="bold|italic"
         android:layout_above="@+id/wineBtn"
         android:layout_toEndOf="@+id/wineBtn"
-        android:layout_marginBottom="57dp"/>
+        android:layout_marginBottom="57dp"
+        android:textColor="#ffffff"/>
 
     <Button
         android:layout_width="100dp"
@@ -48,6 +54,7 @@
         android:textSize="50sp"
         android:id="@+id/wineView"
         android:textStyle="bold|italic"
+        android:textColor="#ffffff"
         android:layout_alignBottom="@+id/wineBtn"
         android:layout_alignStart="@+id/BeerView"/>
     <Button
@@ -55,9 +62,8 @@
         android:layout_height="100dp"
         android:background="@mipmap/ic_launcher_mixed"
         android:id="@+id/mixedDrinksBtn"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/wineBtn"
-        />
+        android:layout_alignBottom="@+id/MixedView"
+        android:layout_alignStart="@+id/wineBtn"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,6 +72,8 @@
         android:textSize="50sp"
         android:id="@+id/MixedView"
         android:textStyle="bold|italic"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/wineView"/>
+        android:textColor="#ffffff"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignStart="@+id/wineView"
+        android:layout_marginBottom="63dp"/>
 </RelativeLayout>
