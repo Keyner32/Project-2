@@ -14,7 +14,7 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
     //TODO Set up a universal database for all of your drinks.
 
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
     public static final String DB_NAME = "WHAT'LL_IT_BE3.db";
     public static final String TABLE_NAME = "DRINKS3";
 
@@ -48,20 +48,20 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_DRINKS);
 
-        insert(db, 1, "beer", "corona", 2.0, "mexican beer");
-        insert(db, 2, "beer", "budlight", 1.0, "american beer");
-        insert(db, 3, "beer", "coors", 3.0, "american beer");
-        insert(db, 4, "beer", "805", 4.0, "imported beer");
-        insert(db, 5, "beer", "guinness", 3.0, "british beer");
-        insert(db, 6, "beer", "sapporo", 2.0, "chinese beer");
+        insert(db, "beer", "corona", 2.0, "mexican beer");
+        insert(db, "beer", "budlight", 1.0, "american beer");
+        insert(db, "beer", "coors", 3.0, "american beer");
+        insert(db, "beer", "805", 4.0, "imported beer");
+        insert(db, "beer", "guinness", 3.0, "british beer");
+        insert(db, "beer", "sapporo", 2.0, "chinese beer");
 
-        insert(db, 7, "wine", "Justin", 6.0, "Cab");
-        insert(db, 8, "wine", "Clu de Bois", 4.0, "European");
-        insert(db, 9, "wine", "Justin", 6.0, "Cab");
+        insert(db, "wine", "Justin", 6.0, "Cab");
+        insert(db, "wine", "Clu de Bois", 4.0, "European");
+        insert(db, "wine", "Justin", 6.0, "Cab");
 
-        insert(db, 10, "mixed drink", "77", 12.0, "sevens whisky & seven up");
-        insert(db, 11, "mixed drink", "Blue Hawaiian", 10.0, "Blue Drink");
-        insert(db, 12, "mixed drink", "Long Island", 12.0, "Mixture of vokdas");
+        insert(db, "mixed drink", "77", 12.0, "sevens whisky & seven up");
+        insert(db, "mixed drink", "Blue Hawaiian", 10.0, "Blue Drink");
+        insert(db, "mixed drink", "Long Island", 12.0, "Mixture of vokdas");
 
 
     }
@@ -83,10 +83,10 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
     }
 
-    public void insert(SQLiteDatabase db, int id, String type, String name, double abv, String desc) {
+    public void insert(SQLiteDatabase db, String type, String name, double abv, String desc) {
         ContentValues values = new ContentValues();
 
-        values.put(COL_ID, id);
+
         values.put(COL_ALCOHOL_TYPE, type);
         values.put(COL_NAME, name);
         values.put(COL_ABV, abv);
@@ -153,8 +153,6 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
     }
 
 
-//TODO //TODO //TODO //TODO //TODO //TODO
-
 
 
 
@@ -164,7 +162,7 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
         Cursor cursor = db.query(TABLE_NAME,
                 COLUMN_SELECTION,
-                COL_ALCOHOL_TYPE + " LIKE ?",
+                COL_ALCOHOL_TYPE + " = ?",
                 new String[]{type},
                 null,
                 null,

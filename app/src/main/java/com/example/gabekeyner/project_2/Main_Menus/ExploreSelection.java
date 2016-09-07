@@ -42,13 +42,8 @@ public class ExploreSelection extends AppCompatActivity {
         handleIntent(getIntent());
 
         Intent intent = getIntent();
-        String beer = intent.getExtras().getString("beer");
+        String type = intent.getExtras().getString("type");
 
-        Intent intent1 = getIntent();
-        String wine = intent1.getExtras().getString("wine");
-
-        Intent intent2 = getIntent();
-        String mixed_drink = intent2.getExtras().getString("mixed drink");
 
 
 
@@ -62,7 +57,7 @@ public class ExploreSelection extends AppCompatActivity {
 
         //CREATE cursor
 
-        Cursor cursor = DrinksClassHelper.getInstance(ExploreSelection.this).getAllDrinks("mixed drinks");
+        Cursor cursor = DrinksClassHelper.getInstance(ExploreSelection.this).getAllDrinks(type);
 
 
         String[] columns = new String[]{DrinksClassHelper.COL_NAME, DrinksClassHelper.COL_ABV, DrinksClassHelper.COL_DESCRIPTION};
@@ -127,28 +122,3 @@ public class ExploreSelection extends AppCompatActivity {
     }
 }
 
-
-//        Cursor cursor = DrinksClassHelper.getInstance(ExploreSelection.this).getBeers("beer");
-//
-//        CursorAdapter cursorAdapter = new CursorAdapter(ExploreSelection.this, cursor, 0) {
-//            @Override
-//            public View newView(Context context, Cursor cursor, ViewGroup parent) {
-//                return LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
-//            }
-//
-//            @Override
-//            public void bindView(View view, Context context, Cursor cursor) {
-//                TextView nameView = (TextView) view.findViewById(R.id.list_item_name);
-//                TextView abvView = (TextView) view.findViewById(R.id.list_item_ABV);
-//                TextView descriptionView = (TextView) view.findViewById(R.id.list_item_description);
-//
-//                nameView.setText(cursor.getString(cursor.getColumnIndex(DrinksClassHelper.COL_NAME)));
-//                abvView.setText(cursor.getString(cursor.getColumnIndex(DrinksClassHelper.COL_ABV)));
-//                descriptionView.setText(cursor.getString(cursor.getColumnIndex(DrinksClassHelper.COL_DESCRIPTION)));
-//
-//            }
-//        };
-//        ListView listView = (ListView) findViewById(R.id.list_view);
-//
-////        listView.setAdapter(cursorAdapter);
-//        listView.setAdapter(simpleCursorAdapter);

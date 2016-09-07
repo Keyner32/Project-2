@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Main_Menus.MyDrinks"
-    android:background="#020000">
+    android:background="#020000"
+   >
 
 
     <!--<ImageView-->
@@ -16,65 +18,27 @@
         <!--android:layout_alignParentTop="true"-->
         <!--android:layout_alignParentEnd="true">-->
     <!--</ImageView>-->
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/beerBtn"
-        android:layout_alignBottom="@+id/BeerView"
-        android:layout_toStartOf="@+id/BeerView"
-        android:background="@mipmap/ic_launcher_beer"/>
 
-    <TextView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Beer"
-        android:textSize="50sp"
-        android:id="@+id/BeerView"
-        android:layout_marginStart="44dp"
-        android:textStyle="bold|italic"
-        android:layout_above="@+id/wineBtn"
-        android:layout_toEndOf="@+id/wineBtn"
-        android:layout_marginBottom="57dp"
-        android:textColor="#ffffff"/>
+        android:id="@+id/user_add_drinks"
+        android:background="@color/button_material_light">
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@mipmap/ic_launcher_wine"
-        android:id="@+id/wineBtn"
-        android:layout_marginStart="67dp"
-        android:layout_above="@+id/MixedView"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="45dp"/>
-    <TextView
+    </ListView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:tint="#ffff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Wine"
-        android:textSize="50sp"
-        android:id="@+id/wineView"
-        android:textStyle="bold|italic"
-        android:textColor="#ffffff"
-        android:layout_alignBottom="@+id/wineBtn"
-        android:layout_alignStart="@+id/BeerView"/>
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@mipmap/ic_launcher_mixed"
-        android:id="@+id/mixedDrinksBtn"
-        android:layout_marginBottom="59dp"
+        android:layout_gravity="bottom|end"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:layout_marginBottom="68dp"
         android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/BeerView"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Mixed Drinks"
-        android:textSize="50sp"
-        android:id="@+id/MixedView"
-        android:textStyle="bold|italic"
-        android:textColor="#ffffff"
-        android:layout_alignBottom="@+id/mixedDrinksBtn"
-        android:layout_alignStart="@+id/wineView"/>
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="63dp"/>
+
 </RelativeLayout>

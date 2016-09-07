@@ -10,9 +10,9 @@ import com.example.gabekeyner.project_2.R;
 
 public class Explore extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String beer = "beer";
-    private static final String wine = "wine";
-    private static final String mixed_drink = "mixed drink";
+    private static final String BEER = "beer";
+    private static final String WINE = "wine";
+    private static final String MIXED_DRINK = "mixed drink";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,33 +33,30 @@ public class Explore extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+
+        String type = "";
+
         switch (v.getId()) {
 
             // show table that has to do everything with beer
             case R.id.beerBtn:
 
-                Intent b = new Intent(this, ExploreSelection.class);
-                b.putExtra("beer", beer);
-                startActivity(b);
-
-
-                // show table that has to do everything with wine
+                type = BEER;
+                break;
+            // show table that has to do everything with wine
             case R.id.wineBtn:
 
-                Intent w = new Intent(this, ExploreSelection.class);
-                w.putExtra("wine", wine);
-                startActivity(w);
-
-
-                // show table that has to do everything with mixed drinks
+                type = WINE;
+                break;
+            // show table that has to do everything with mixed drinks
             case R.id.mixedDrinksBtn:
 
-                Intent md = new Intent(this, ExploreSelection.class);
-                md.putExtra("mixed drink", mixed_drink);
-                startActivity(md);
-
-
+                type = MIXED_DRINK;
+                break;
         }
+        Intent i = new Intent(this, ExploreSelection.class);
+        i.putExtra("type", type);
+        startActivity(i);
     }
 
 
