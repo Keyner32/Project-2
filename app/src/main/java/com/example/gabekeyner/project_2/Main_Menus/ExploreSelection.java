@@ -21,8 +21,11 @@ public class ExploreSelection extends AppCompatActivity {
 
     private CursorAdapter mCursorAdapter;
     private DrinksClassHelper mHelper;
+    private ListView DrinksListView;
     public String title = "Search Result";
-//    private Cursor cursor;
+
+
+    //    private Cursor cursor;
 //    private Cursor searchCursor;
 
 
@@ -31,15 +34,99 @@ public class ExploreSelection extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explore_selection);
 
+
+
+
         //Intent from the three categories
 
         handleIntent(getIntent());
+
+        Intent intent = getIntent();
+        String beer = intent.getExtras().getString("beer");
+
+        Intent intent1 = getIntent();
+        String wine = intent1.getExtras().getString("wine");
+
+        Intent intent2 = getIntent();
+        String mixed_drink = intent2.getExtras().getString("mixed drink");
+
+
+
 
         //Instantiate subclass of SQLiteHelper
 
         DrinksClassHelper helper = new DrinksClassHelper(this);
 
+        DrinksListView = (ListView) findViewById(R.id.list_view);
+
+
         //CREATE cursor
+
+        Cursor cursor = DrinksClassHelper.getInstance(ExploreSelection.this).getAllDrinks("mixed drinks");
+
+
+        String[] columns = new String[]{DrinksClassHelper.COL_NAME, DrinksClassHelper.COL_ABV, DrinksClassHelper.COL_DESCRIPTION};
+        int[] viewNames = new int[]{R.id.list_item_name, R.id.list_item_ABV, R.id.list_item_description};
+        CursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(
+                ExploreSelection.this,
+                R.layout.list_item,
+                cursor,
+                columns,
+                viewNames,
+                0
+        );
+
+        //Set adapter
+        ListView listView = (ListView) findViewById(R.id.list_view);
+
+
+        //Simple Cursor Adapter
+        listView.setAdapter(simpleCursorAdapter);
+
+
+//        if (!Intent.ACTION_SEARCH.equals(getIntent().getAction())) {
+//            Intent i = getIntent();
+//            if (i.getStringExtra("type") != null) {
+//                title = i.getStringExtra("type").toString();
+//
+//                cursor = mHelper.getBeers(title);
+//                ((TextView) findViewById(R.id.textView)).setText(title.toString().toUpperCase());
+//            }
+//
+//        }
+
+    }
+
+
+    //TODO Search Bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu, menu);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+
+        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+        return true;
+    }
+
+
+    private void handleIntent(Intent intent) {
+
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            Toast.makeText(ExploreSelection.this, "Searching for " + query, Toast.LENGTH_SHORT).show();
+//            if (mCursorAdapter != null) {
+//                mCursorAdapter.swapCursor(searchCursor);
+//                mCursorAdapter.notifyDataSetChanged();
+//            }
+        }
+    }
+}
+
 
 //        Cursor cursor = DrinksClassHelper.getInstance(ExploreSelection.this).getBeers("beer");
 //
@@ -65,79 +152,3 @@ public class ExploreSelection extends AppCompatActivity {
 //
 ////        listView.setAdapter(cursorAdapter);
 //        listView.setAdapter(simpleCursorAdapter);
-        Cursor cursor = DrinksClassHelper.getInstance(ExploreSelection.this).getBeers("beer");
-
-
-        String[] columns = new String[]{DrinksClassHelper.COL_NAME,DrinksClassHelper.COL_ABV,DrinksClassHelper.COL_DESCRIPTION};
-        int[] viewNames = new int[]{R.id.list_item_name,R.id.list_item_ABV,R.id.list_item_description};
-        CursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(
-                ExploreSelection.this,
-                R.layout.list_item,
-                cursor,
-                columns,
-                viewNames,
-                0
-        );
-
-        //Set adapter
-        ListView listView = (ListView)findViewById(R.id.list_view);
-
-
-
-        //Simple Cursor Adapter
-        listView.setAdapter(simpleCursorAdapter);
-
-
-
-
-
-
-
-
-//        if (!Intent.ACTION_SEARCH.equals(getIntent().getAction())) {
-//            Intent i = getIntent();
-//            if (i.getStringExtra("type") != null) {
-//                title = i.getStringExtra("type").toString();
-//
-//                cursor = mHelper.getBeers(title);
-//                ((TextView) findViewById(R.id.textView)).setText(title.toString().toUpperCase());
-//            }
-//
-//        }
-
-    }
-
-
-
-    //TODO Search Bar
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.options_menu, menu);
-
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-
-        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
-
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-
-        return true;
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        handleIntent(intent);
-    }
-
-    private void handleIntent(Intent intent) {
-
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String query = intent.getStringExtra(SearchManager.QUERY);
-            Toast.makeText(ExploreSelection.this, "Searching for " + query, Toast.LENGTH_SHORT).show();
-//            if (mCursorAdapter != null) {
-//                mCursorAdapter.swapCursor(searchCursor);
-//                mCursorAdapter.notifyDataSetChanged();
-//            }
-        }
-    }
-}

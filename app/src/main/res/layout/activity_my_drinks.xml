@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main_Menus.MyDrinks">
+    tools:context=".Main_Menus.MyDrinks"
+    android:background="#020000">
 
 
     <!--<ImageView-->
@@ -62,8 +63,9 @@
         android:layout_height="100dp"
         android:background="@mipmap/ic_launcher_mixed"
         android:id="@+id/mixedDrinksBtn"
-        android:layout_alignBottom="@+id/MixedView"
-        android:layout_alignStart="@+id/wineBtn"/>
+        android:layout_marginBottom="59dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/BeerView"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,7 +75,6 @@
         android:id="@+id/MixedView"
         android:textStyle="bold|italic"
         android:textColor="#ffffff"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_alignStart="@+id/wineView"
-        android:layout_marginBottom="63dp"/>
+        android:layout_alignBottom="@+id/mixedDrinksBtn"
+        android:layout_alignStart="@+id/wineView"/>
 </RelativeLayout>

@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#020000"
 
     tools:context="com.example.gabekeyner.project_2.MainActivity">
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/imageView"
-        android:background="@drawable/project_g"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
-    </ImageView>
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/imageView"-->
+
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true">-->
+    <!--</ImageView>-->
 
     <Button
         android:id="@+id/my_drinks"
