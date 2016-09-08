@@ -1,72 +1,59 @@
 package com.example.gabekeyner.project_2.Main_Menus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.example.gabekeyner.project_2.R;
 
+import java.util.List;
+
+
 public class MyDrinks extends AppCompatActivity implements View.OnClickListener {
 
-    // Declare edit texts and buttons for user input dialog box
-
-
-    private static final String BEER = "beer";
-    private static final String WINE = "wine";
-    private static final String MIXED_DRINK = "mixed drink";
+        private ListView addedDrink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_drinks);
 
-        //Find the views by ID
+        //List view for user added drink
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById()
+        addedDrink = (ListView) findViewById(R.id.result_drink);
+
+        //Find FAB by ID
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
 
-//TODO set on click listeners to three categories
-//TODO  Beer/Wine/Mixed Drinks(USE Switch Case
+        fab.setOnClickListener(this);
 
-        Button beerBtn = (Button) findViewById(R.id.beerBtn);
-        Button wineBtn = (Button) findViewById(R.id.wineBtn);
-        Button mixedDrinkBtn = (Button) findViewById(R.id.mixedDrinksBtn);
-
-        beerBtn.setOnClickListener(this);
-        wineBtn.setOnClickListener(this);
-        mixedDrinkBtn.setOnClickListener(this);
     }
-
-
-}
-/*    @Override
+   @Override
     public void onClick(View v) {
 
-        String type = "";
+       if (v == findViewById(R.id.fab)) {
 
-        switch (v.getId()) {
-
-            // show table that has to do everything with beer
-            case R.id.beerBtn:
-
-                type = BEER;
-                break;
+           Intent intent = new Intent(this, MySelectionActivity.class);
+           startActivity(intent);
 
 
-            // show table that has to do everything with wine
-            case R.id.wineBtn:
-                type = WINE;
-                break;
+       }
 
-            // show table that has to do everything with mixed drinks
-            case R.id.mixedDrinksBtn:
-                type = MIXED_DRINK;
-                break;
-        }
-        Intent i = new Intent(this, ExploreSelection.class);
-        i.putExtra("type", type);
-        startActivity(i);
-    }*/
+   }
+
+    private void updateList(List<String> newList) {
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                MyDrinks.this,
+                android.R.layout.simple_list_item_1,
+                newList
+        );
+        addedDrink.setAdapter(adapter);
+    }
+
+}

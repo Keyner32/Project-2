@@ -97,14 +97,16 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
     }
 
 
-    public int addItem(String alcoholType, String name, Double ABV, String description) {
+    public int addItem(DrinksClass addedDrink) {
+
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(COL_ALCOHOL_TYPE, alcoholType);
-        values.put(COL_NAME, name);
-        values.put(COL_ABV, String.valueOf(ABV));
-        values.put(COL_DESCRIPTION, description);
+
+        values.put(COL_ALCOHOL_TYPE, addedDrink.getAlcoholType());
+        values.put(COL_NAME, addedDrink.getName());
+        values.put(COL_ABV, addedDrink.getABV());
+        values.put(COL_DESCRIPTION, addedDrink.getDescription());
 
         long id = db.insert(TABLE_NAME, null, values);
 
@@ -128,7 +130,7 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         Double ABV = cursor.getDouble(cursor.getColumnIndex(COL_ABV));
         String description = cursor.getString(cursor.getColumnIndex(COL_DESCRIPTION));
 
-        return new DrinksClass(id, alcoholType, name, ABV, description);
+        return new DrinksClass(alcoholType, name, ABV, description);
     }
 
     public int update(String alcoholType, String name, Double ABV, String description) {

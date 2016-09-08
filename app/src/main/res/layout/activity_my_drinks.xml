@@ -22,7 +22,7 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/user_add_drinks"
+        android:id="@+id/result_drink"
         android:background="@color/button_material_light">
 
     </ListView>
