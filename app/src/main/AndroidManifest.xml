@@ -21,7 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Main_Menus.MyDrinks"/>
+        <activity android:name=".Main_Menus.MyDrinks"
+                  android:label="@string/my_drinks"/>
         <activity
             android:name=".Main_Menus.Explore"
             android:label="@string/explore"

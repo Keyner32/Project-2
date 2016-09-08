@@ -4,19 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#020000"
+    android:background="@drawable/new_year_image"
 
     tools:context="com.example.gabekeyner.project_2.MainActivity">
 
 
-    <!--<ImageView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:id="@+id/imageView"-->
-        <!--android:background="@drawable/project_g"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_centerHorizontal="true">-->
-    <!--</ImageView>-->
 
     <Button
         android:id="@+id/my_drinks"
@@ -43,14 +35,13 @@
 
     <TextView
         android:id="@+id/Title"
-        android:layout_width="270dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="60sp"
+        android:textSize="20sp"
         android:textStyle="bold|italic"
-        android:layout_above="@+id/my_drinks"
-        android:layout_alignStart="@+id/my_drinks"
-        android:layout_marginBottom="100dp"
-        android:text="WHAT&apos;LL IT BE. . ."
-        android:textColor="#ffffff"/>
+        android:text="SO WHAT&apos;LL IT BE. . ."
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>

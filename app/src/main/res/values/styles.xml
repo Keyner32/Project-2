@@ -19,4 +19,9 @@
 
     <style name="WhatllItBe" parent="AppTheme"/>
 
+    <style name="greatgatsby" parent="AppTheme"/>
+
+
+
+
 </resources>

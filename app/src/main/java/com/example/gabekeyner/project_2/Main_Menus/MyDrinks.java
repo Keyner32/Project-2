@@ -27,9 +27,21 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_drinks);
 
+
+        String namePlacer = "Name : ";
+        String abvPlacer  = "ABV% : ";
+        String descriptionPlacer  = "Description : ";
+//
+//        String nameLayout = namePlacer + DrinksClassHelper.COL_NAME;
+//        String abvLayout = abvPlacer + DrinksClassHelper.COL_ABV;
+//        String descriptionLayout = descriptionPlacer + DrinksClassHelper.COL_DESCRIPTION;
+
+
+
         //List view for user added drink
 
         addedDrink = (ListView) findViewById(R.id.result_drink);
+//        namePlacer =
 
         //Find FAB by ID
 
@@ -46,8 +58,10 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
         Cursor cursor = DrinksClassHelper.getInstance(MyDrinks.this).getUserDrinks();
 
 
-        String[] columns = new String[]{DrinksClassHelper.COL_NAME, DrinksClassHelper.COL_ABV, DrinksClassHelper.COL_DESCRIPTION};
+        String[] columns = new String[]{DrinksClassHelper.COL_NAME, DrinksClassHelper.COL_ABV, DrinksClassHelper
+                .COL_DESCRIPTION};
         int[] viewNames = new int[]{R.id.list_item_name, R.id.list_item_ABV, R.id.list_item_description};
+
         simpleCursorAdapter = new SimpleCursorAdapter(
                 MyDrinks.this,
                 R.layout.list_item,
@@ -61,12 +75,17 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
         ListView listView = (ListView) findViewById(R.id.result_drink);
 
 
+
         //Simple Cursor Adapter
         listView.setAdapter(simpleCursorAdapter);
 
 
 
 //TODO add cutsom back button press
+        //TODO add cutsom back button press
+        //TODO add cutsom back button press
+        //TODO add cutsom back button press
+
 
 
 

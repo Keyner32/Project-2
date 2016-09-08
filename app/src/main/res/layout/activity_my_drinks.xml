@@ -6,23 +6,15 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Main_Menus.MyDrinks"
+    android:background="@drawable/my_drink_image"
     >
 
 
-    <!--<ImageView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:id="@+id/imageView"-->
-        <!--android:background="@drawable/project_my_drinks"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentEnd="true">-->
-    <!--</ImageView>-->
-
     <ListView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/result_drink"
-        android:background="@color/button_material_light">
+        android:id="@+id/result_drink">
 
     </ListView>
     <android.support.design.widget.AppBarLayout
@@ -36,16 +28,17 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
-        android:tint="#ffff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:src="@android:drawable/ic_input_add"
         android:layout_marginLeft="@dimen/fab_margin"
         android:layout_marginRight="@dimen/fab_margin"
         android:layout_marginBottom="68dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="63dp"/>
+        android:layout_marginEnd="63dp"
+        android:src="@android:drawable/ic_menu_add"
+        app:backgroundTint="#FF73602A"
+        />
 
 </android.support.design.widget.CoordinatorLayout>
