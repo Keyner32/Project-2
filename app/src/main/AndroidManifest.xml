@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.gabekeyner.project_2">
+
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -10,22 +11,14 @@
         android:label=""
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-
         <activity android:name=".MainActivity">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Main_Menus.MyDrinks"
-            android:label="@string/my_drinks"/>
-
+        <activity android:name=".Main_Menus.MyDrinks"/>
         <activity
             android:name=".Main_Menus.Explore"
             android:label="@string/explore"
@@ -33,17 +26,19 @@
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>
             </intent-filter>
+
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable"/>
         </activity>
-
-        <activity android:name=".Main_Menus.MySelectionActivity">
+        <activity
+            android:name=".Main_Menus.MyDrinkSelection"
+            android:label="@string/create">
         </activity>
         <activity android:name=".Main_Menus.ExploreSelection">
         </activity>
-
-
+        <activity android:name=".DataBaseCritera.SearchBar">
+        </activity>
     </application>
 
 </manifest>

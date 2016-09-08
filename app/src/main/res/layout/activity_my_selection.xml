@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/activity_horizontal_margin"
-    android:background="#020000"
-    android:orientation="vertical"
-    tools:context=".Main_Menus.MySelectionActivity">
+    android:orientation="vertical">
     <EditText
         android:id="@+id/name_input"
         android:layout_width="match_parent"

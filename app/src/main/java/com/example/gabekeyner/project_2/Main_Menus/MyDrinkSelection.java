@@ -1,5 +1,6 @@
 package com.example.gabekeyner.project_2.Main_Menus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -12,7 +13,7 @@ import com.example.gabekeyner.project_2.DataBaseCritera.DrinksClass;
 import com.example.gabekeyner.project_2.DataBaseCritera.DrinksClassHelper;
 import com.example.gabekeyner.project_2.R;
 
-public class MySelectionActivity extends AppCompatActivity implements View.OnClickListener {
+public class MyDrinkSelection extends AppCompatActivity implements View.OnClickListener{
 
     private EditText name_input;
     private EditText type_input;
@@ -46,7 +47,11 @@ public class MySelectionActivity extends AppCompatActivity implements View.OnCli
         switch (view.getId()) {
             //set add_drink button to do save to db
             case R.id.add_drink:
-                if (addDrinkToDb()) finish();
+                if (addDrinkToDb()){
+                    Intent myIntent = new Intent(this, MyDrinks.class);
+                    startActivity(myIntent);
+
+                }
                 break;
             //set cancel button to finish
             case R.id.cancel_button:
@@ -82,15 +87,22 @@ public class MySelectionActivity extends AppCompatActivity implements View.OnCli
 
 
         //Instantiate a new Drink
-        DrinksClass addedDrink = new DrinksClass(alcoholType, name, ABV, desc);
+        DrinksClass addedDrink = new DrinksClass(alcoholType, name, ABV, desc,"yes");
 
-        DrinksClassHelper helper = new DrinksClassHelper(MySelectionActivity.this);
+        DrinksClassHelper helper = new DrinksClassHelper(MyDrinkSelection.this);
 
         //Save the Drink to the Database
         helper.addItem(addedDrink);
 
 
-        Toast.makeText(MySelectionActivity.this, "Drink as been add to you Bar", Toast.LENGTH_LONG).show();
+
+
+
+
+
+
+
+        Toast.makeText(MyDrinkSelection.this, "Drink as been add to you Bar", Toast.LENGTH_LONG).show();
         return true;
     }
 }

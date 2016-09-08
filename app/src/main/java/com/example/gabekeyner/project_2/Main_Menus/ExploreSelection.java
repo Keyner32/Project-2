@@ -39,7 +39,6 @@ public class ExploreSelection extends AppCompatActivity {
 
         //Intent from the three categories
 
-        handleIntent(getIntent());
 
         Intent intent = getIntent();
         String type = intent.getExtras().getString("type");
@@ -93,32 +92,6 @@ public class ExploreSelection extends AppCompatActivity {
     }
 
 
-    //TODO Search Bar
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.options_menu, menu);
 
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-
-        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
-
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-
-        return true;
-    }
-
-
-    private void handleIntent(Intent intent) {
-
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String query = intent.getStringExtra(SearchManager.QUERY);
-            Toast.makeText(ExploreSelection.this, "Searching for " + query, Toast.LENGTH_SHORT).show();
-//            if (mCursorAdapter != null) {
-//                mCursorAdapter.swapCursor(searchCursor);
-//                mCursorAdapter.notifyDataSetChanged();
-//            }
-        }
-    }
 }
 
