@@ -4,14 +4,16 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.CursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.ListView;
 
+import com.example.gabekeyner.project_2.DataBaseCritera.DrinksClassHelper;
 import com.example.gabekeyner.project_2.R;
 
 public class Explore extends AppCompatActivity implements View.OnClickListener {
@@ -20,12 +22,17 @@ public class Explore extends AppCompatActivity implements View.OnClickListener {
     private static final String WINE = "wine";
     private static final String MIXED_DRINK = "mixed drink";
 
+
+    public DrinksClassHelper helper;
+    private ListView mSearchBarView;
+    private CursorAdapter mCursorAdapter;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explore);
-
-        handleIntent(getIntent());
 
 
 
@@ -38,7 +45,12 @@ public class Explore extends AppCompatActivity implements View.OnClickListener {
         mixedDrinkBtn.setOnClickListener(this);
 
 
+
+        mSearchBarView = (ListView) findViewById(R.id.search_bar);
+
     }
+
+
 
     @Override
     public void onClick(View v) {
@@ -67,6 +79,8 @@ public class Explore extends AppCompatActivity implements View.OnClickListener {
         i.putExtra("type", type);
         startActivity(i);
     }
+
+
     //TODO Search Bar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -79,20 +93,9 @@ public class Explore extends AppCompatActivity implements View.OnClickListener {
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
+
         return true;
     }
 
-
-    private void handleIntent(Intent intent) {
-
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String query = intent.getStringExtra(SearchManager.QUERY);
-            Toast.makeText(Explore.this, "Searching for " + query, Toast.LENGTH_SHORT).show();
-//            if (mCursorAdapter != null) {
-//                mCursorAdapter.swapCursor(searchCursor);
-//                mCursorAdapter.notifyDataSetChanged();
-//            }
-        }
-    }
 
 }

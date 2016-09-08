@@ -183,7 +183,7 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
-    //this is
+    //this is is the query that get the user added drink
 
     public Cursor getUserDrinks() {
 
@@ -202,6 +202,25 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
     }
 
+    //Use this method to search all by name or type or abv or description
+
+    public Cursor searchAll(String query){
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME,
+                COLUMN_SELECTION,
+                COL_NAME + " LIKE ? OR " + COL_ALCOHOL_TYPE + " LIKE ? OR " + COL_ABV + " LIKE ? OR " + COL_DESCRIPTION + " LIKE ? ",
+                new String[]{"%" + query + "%", "%" + query + "%", "%" + query + "%", "%" + query + "%"},
+                null,
+                null,
+                null,
+                null);
+
+
+
+        return cursor;
+    }
 
 
 

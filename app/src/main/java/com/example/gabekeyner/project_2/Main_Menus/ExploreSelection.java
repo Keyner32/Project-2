@@ -1,32 +1,20 @@
 package com.example.gabekeyner.project_2.Main_Menus;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.gabekeyner.project_2.DataBaseCritera.DrinksClassHelper;
 import com.example.gabekeyner.project_2.R;
 
 public class ExploreSelection extends AppCompatActivity {
 
-    private CursorAdapter mCursorAdapter;
-    private DrinksClassHelper mHelper;
-    private ListView DrinksListView;
-    public String title = "Search Result";
 
-
-    //    private Cursor cursor;
-//    private Cursor searchCursor;
+    public ListView DrinksListView;
 
 
     @Override
@@ -78,16 +66,6 @@ public class ExploreSelection extends AppCompatActivity {
         listView.setAdapter(simpleCursorAdapter);
 
 
-//        if (!Intent.ACTION_SEARCH.equals(getIntent().getAction())) {
-//            Intent i = getIntent();
-//            if (i.getStringExtra("type") != null) {
-//                title = i.getStringExtra("type").toString();
-//
-//                cursor = mHelper.getBeers(title);
-//                ((TextView) findViewById(R.id.textView)).setText(title.toString().toUpperCase());
-//            }
-//
-//        }
 
     }
 

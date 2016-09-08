@@ -6,6 +6,8 @@ package com.example.gabekeyner.project_2.DataBaseCritera;
 public class DrinksClass {
 
 
+    //Object Oriented Programming = Drink
+
     private String alcoholType;
     private String name;
     private Double ABV;

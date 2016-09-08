@@ -76,4 +76,12 @@
         android:textColor="#ffffff"
         android:layout_alignBottom="@+id/mixedDrinksBtn"
         android:layout_alignStart="@+id/wineView"/>
+
+    <TextView
+        android:id="@+id/search_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="20dp"/>
+
 </RelativeLayout>

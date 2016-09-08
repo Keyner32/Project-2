@@ -8,12 +8,14 @@
     <string name="wines">Wines</string>
     <string name="mixed_drinks">Mixed Drinks</string>
     <string name="Search_Hint">Search For A Drink</string>
+    <string name="search_title">Search</string>
     <string name="name">Drink Name</string>
     <string name="type">Alcohol Type</string>
     <string name="desc">Description</string>
     <string name="abv">ABV</string>
     <string name="add_drink">Add Drink</string>
     <string name="cancel">cancel</string>
+    <string name="search_results">Search Results</string>
 
 
 </resources>
