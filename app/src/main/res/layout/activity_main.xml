@@ -40,7 +40,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="20sp"
         android:textStyle="bold|italic"
-        android:text="SO WHAT&apos;LL IT BE. . ."
+        android:text="      SO WHAT&apos;LL IT BE. . ."
         android:textColor="#ffffff"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"/>

@@ -7,7 +7,7 @@ import com.facebook.stetho.Stetho;
 /**
  * Created by GabeKeyner on 9/6/2016.
  */
-public class MyApplication extends Application{
+public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();

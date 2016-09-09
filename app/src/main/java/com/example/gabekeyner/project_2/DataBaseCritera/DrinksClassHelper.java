@@ -51,26 +51,36 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_DRINKS);
 
-        insert(db, "beer", "corona", 2.0, "mexican beer", "no");
-        insert(db, "beer", "budlight", 1.0, "american beer", "no");
-        insert(db, "beer", "coors", 3.0, "american beer", "no");
+        insert(db, "beer", "Corona", 2.0, "Mexican beer", "no");
+        insert(db, "beer", "Budlight", 1.0, "American beer", "no");
+        insert(db, "beer", "Coors", 3.0, "American beer", "no");
         insert(db, "beer", "805", 4.0, "imported beer", "no");
-        insert(db, "beer", "guinness", 3.0, "british beer", "no");
-        insert(db, "beer", "sapporo", 2.0, "chinese beer", "no");
+        insert(db, "beer", "Guinness", 3.0, "british beer", "no");
+        insert(db, "beer", "Sapporo", 2.0, "chinese beer", "no");
 
-        insert(db, "wine", "Justin", 6.0, "Cab", "no");
-        insert(db, "wine", "Clu de Bois", 4.0, "European", "no");
-        insert(db, "wine", "Justin", 6.0, "Cab", "no");
+        insert(db, "wine", "Beringer", 6.0, "Red wine with a strong ripe flavor", "no");
+        insert(db, "wine", "Clu de Bois", 4.0, "European wine that is seen in more of restaurants", "no");
+        insert(db, "wine", "Brunello", 6.0, "This strain of Sangiovese is the only grape permitted for Brunello", "no");
 
-        insert(db, "mixed drink", "77", 12.0, "sevens whisky & seven up", "no");
-        insert(db, "mixed drink", "Blue Hawaiian", 10.0, "Blue Drink", "no");
-        insert(db, "mixed drink", "Long Island", 12.0, "Mixture of vokdas", "no");
-/*
+        insert(db, "mixed drink", "7 & 7", 12.0, "a mixed alcoholic drink containing Seagrams Seven Crown and 7 Up.", "no");
+        insert(db, "mixed drink", "Blue Hawaiian", 10.0, "tropical cocktail made of rum, pineapple juice, Curaçao, sweet and sour mix, and sometimes vodka as well.", "no");
+        insert(db, "mixed drink", "Long Island", 12.0, "typically made with tequila, vodka, light rum, triple sec, gin, and a splash of cola", "no");
+
         insert(db, "wine", "Bardolino ", 8.0, "A light red wine from the Veneto Region of Italy.", "no");
         insert(db, "wine", "Barolo", 11.0, "Highly regarded Italian red, made from Nebbiolo grapes.", "no");
         insert(db, "wine", "Blush", 9.0, "American term for rosé. Any wine that is pink in color.", "no");
+        insert(db, "wine", "Cabernet Sauvignon", 8.0, "Currant, Plum, Black Cherry & Spice, with notes of Olive, Vanilla Mint..", "no");
+        insert(db, "wine", "Carmenere", 11.0, "Imported to Chile in the 1850s.", "no");
+        insert(db, "wine", "Charbono'", 9.0, "This grape has dwindled in acreage, often lean and tannic.", "no");
+        insert(db, "mixed drink", "Piña Colada ", 8.0, "Is a sweet cocktail made with rum, coconut cream or coconut milk, and pineapple juice", "no");
+        insert(db, "mixed drink", "Mojito", 11.0, "White rum, sugar, lime juice, soda water, and mint.", "no");
+        insert(db, "mixed drink", "White Russian", 9.0, "made with vodka, coffee liqueur, and cream served with ice in an Old Fashioned glass,", "no");
+        insert(db, "beer", "Budweiser", 3.0, " American-style pale lager", "no");
+        insert(db, "beer", "Modelo", 4.0, "Pilsner-Style beer", "no");
+        insert(db, "beer", "Pacifico ", 3.0, "Mexican pilsner-style beer", "no");
+        insert(db, "beer", "Stella Artois", 2.0, "Its slightly bitter, very refreshing similiar to the average beer but slightly stronger", "no");
 
-*/
+
     }
 
     @Override
@@ -171,7 +181,7 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = getReadableDatabase();
 
-    //When ever a drink was entered into the database with the maker it will return the user_drink column as "no"
+        //When ever a drink was entered into the database with the maker it will return the user_drink column as "no"
         Cursor cursor = db.query(TABLE_NAME,
                 COLUMN_SELECTION,
                 COL_ALCOHOL_TYPE + " = ?" + " AND " + COL_USER + " = ?",

@@ -36,7 +36,6 @@ public class ClickedDrinkItem extends AppCompatActivity {
         String desc = helper.getDescByID(id);
 
 
-
         //Set text to seleccted itme on list
         titleView.setText(title);
         abvView.setText(abv);

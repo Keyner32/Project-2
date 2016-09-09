@@ -14,7 +14,7 @@ public class DrinksClass {
     private String description;
     private String user_drink;
 
-    public DrinksClass(String alcoholType, String name, Double ABV, String description,String user_drink) {
+    public DrinksClass(String alcoholType, String name, Double ABV, String description, String user_drink) {
 
         this.alcoholType = alcoholType;
         this.name = name;

@@ -51,8 +51,6 @@ public class MyDrinkSelection extends AppCompatActivity implements View.OnClickL
             case R.id.add_drink:
                 if (addDrinkToDb()) {
                     finish();
-//                    Intent myIntent = new Intent(this, MyDrinks.class);
-//                    startActivity(myIntent);
                 }
                 break;
 

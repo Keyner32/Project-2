@@ -7,6 +7,18 @@
     tools:context=".Main_Menus.Explore"
     android:background="@drawable/explore_image">
 
+    <Button
+    android:layout_marginLeft="285dp"
+    android:layout_marginTop="50dp"
+    android:id="@+id/menu_button"
+    android:text="Main Menu"
+    android:textSize="15sp"
+    android:textStyle="bold"
+    android:textColor="#ffffff"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:backgroundTint="#FF73602A"/>
+
 
     <Button
         android:layout_width="100dp"

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.gabekeyner.project_2.DataBaseCritera.DrinksClassHelper;
@@ -23,15 +25,11 @@ public class ExploreSelection extends AppCompatActivity {
         setContentView(R.layout.activity_explore_selection);
 
 
-
-
         //Intent from the three categories
 
 
         Intent intent = getIntent();
         String type = intent.getExtras().getString("type");
-
-
 
 
         //Instantiate subclass of SQLiteHelper
@@ -65,10 +63,17 @@ public class ExploreSelection extends AppCompatActivity {
         //Simple Cursor Adapter
         listView.setAdapter(simpleCursorAdapter);
 
+        Button menu_button = (Button) findViewById(R.id.menu_button);
+        menu_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Explore.class);
+                ExploreSelection.this.finish();
 
+            }
+        });
 
     }
-
 
 
 }

@@ -11,6 +11,18 @@
     android:background="@drawable/my_drink_image"
     tools:context="com.example.gabekeyner.project_2.Main_Menus.ClickedDrinkItem">
 
+    <ImageView
+
+        android:layout_width = "200dp"
+        android:layout_height= "200dp"
+        android:scaleType="center"
+        android:layout_gravity="center_horizontal|bottom"
+        android:src="@drawable/beer_display_image"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"/>
+
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -19,9 +31,11 @@
         android:textSize="40sp"
         android:textColor="#ffffff"
         android:textStyle="bold|italic"
-
         android:paddingTop="15dp"
-        android:paddingLeft="45dp" />
+        android:paddingLeft="45dp"
+        android:layout_marginTop="51dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -30,9 +44,10 @@
         android:textSize="40sp"
         android:textColor="#ffffff"
         android:textStyle="bold|italic"
-        android:layout_below="@id/titleView"
         android:paddingTop="15dp"
-        android:paddingLeft="45dp" />
+        android:paddingLeft="45dp"
+        android:layout_below="@+id/titleView"
+        android:layout_alignParentLeft="true"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -41,8 +56,9 @@
         android:textSize="40sp"
         android:textColor="#ffffff"
         android:textStyle="bold|italic"
-        android:layout_below="@id/abvView"
         android:paddingTop="15dp"
-        android:paddingLeft="45dp" />
+        android:paddingLeft="45dp"
+        android:layout_below="@+id/abvView"
+        android:layout_alignParentLeft="true"/>
 
 </RelativeLayout>

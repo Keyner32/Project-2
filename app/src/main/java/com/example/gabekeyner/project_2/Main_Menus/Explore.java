@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.gabekeyner.project_2.DataBaseCritera.DrinksClassHelper;
+import com.example.gabekeyner.project_2.MainActivity;
 import com.example.gabekeyner.project_2.R;
 
 public class Explore extends AppCompatActivity implements View.OnClickListener {
@@ -48,6 +49,19 @@ public class Explore extends AppCompatActivity implements View.OnClickListener {
 
 
         mSearchBarView = (ListView) findViewById(R.id.search_bar);
+
+        //Menu Button
+
+        Button menu_button = (Button) findViewById(R.id.menu_button);
+        menu_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Explore.this.finish();
+
+            }
+        });
+
 
     }
 
