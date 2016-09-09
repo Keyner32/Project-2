@@ -26,10 +26,10 @@ Being a young adult I've found myself inexperienced when going out to bars or pl
 
 - `As a` **user**, `I want` to be able to see my drinks that I saved previously, `so that` I can reference them.
 
-- `As a` **user**, `I want` to be able to look at new drinks  `so that` I can add them to "My Drinks".
+- `As a` **user**, `I want` to be able to look at new drinks in categories  `so that`i dont see all of the different types all at once.
 
 - `As a` **user**, `I want` to be able to search for a drink in the search bar `so that` I can find a specific drink.
 
-- `As a` **user**, `I want` to be able to comment on a drink `so that` I can remember how it tasted.
+- `As a` **user**, `I want` to be able to create a drink `so that` I can add my creations.
 
 
