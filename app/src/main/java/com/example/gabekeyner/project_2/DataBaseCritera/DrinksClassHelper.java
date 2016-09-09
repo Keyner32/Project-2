@@ -14,7 +14,7 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
     //TODO Set up a universal database for all of your drinks.
 
-    private static final int DB_VERSION = 3;
+    private static final int DB_VERSION = 4;
     public static final String DB_NAME = "WHAT'LL_IT_BE3.db";
     public static final String TABLE_NAME = "DRINKS3";
 
