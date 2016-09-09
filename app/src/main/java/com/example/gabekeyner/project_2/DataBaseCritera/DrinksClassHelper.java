@@ -14,7 +14,7 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
     //TODO Set up a universal database for all of your drinks.
 
-    private static final int DB_VERSION = 4;
+    private static final int DB_VERSION = 5;
     public static final String DB_NAME = "WHAT'LL_IT_BE3.db";
     public static final String TABLE_NAME = "DRINKS3";
 
@@ -221,10 +221,61 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
         return cursor;
     }
+    public String getTitleByID(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        Cursor cursor = db.query(TABLE_NAME,
+                new String[]{COL_NAME},
+                COL_ID+" = ?",
+                new String[]{String.valueOf(id)},
+                null,
+                null,
+                null,
+                null);
 
+        if(cursor.moveToFirst()){
+            return cursor.getString(cursor.getColumnIndex(COL_NAME));
+        } else {
+            return "No Description Found";
+        }
+    }
 
+    public String getAbvByID(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        Cursor cursor = db.query(TABLE_NAME,
+                new String[]{COL_ABV},
+                COL_ID+" = ?",
+                new String[]{String.valueOf(id)},
+                null,
+                null,
+                null,
+                null);
 
+        if(cursor.moveToFirst()){
+            return cursor.getString(cursor.getColumnIndex(COL_ABV));
+        } else {
+            return "No Description Found";
+        }
+    }
+
+    public String getDescByID(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME,
+                new String[]{COL_DESCRIPTION},
+                COL_ID+" = ?",
+                new String[]{String.valueOf(id)},
+                null,
+                null,
+                null,
+                null);
+
+        if(cursor.moveToFirst()){
+            return cursor.getString(cursor.getColumnIndex(COL_DESCRIPTION));
+        } else {
+            return "No Description Found";
+        }
+    }
 
 }

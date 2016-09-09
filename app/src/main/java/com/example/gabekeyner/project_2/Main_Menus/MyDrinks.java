@@ -8,13 +8,11 @@ import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.gabekeyner.project_2.DataBaseCritera.DrinksClassHelper;
 import com.example.gabekeyner.project_2.R;
-
-import java.util.List;
 
 
 public class MyDrinks extends AppCompatActivity implements View.OnClickListener {
@@ -72,6 +70,20 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
         //Simple Cursor Adapter
         listView.setAdapter(simpleCursorAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(MyDrinks.this,ClickedDrinkItem.class);
+                Cursor cursor = simpleCursorAdapter.getCursor();
+
+                cursor.moveToPosition(i);
+                intent.putExtra("id",cursor.getInt(cursor.getColumnIndex(DrinksClassHelper.COL_ID)));
+                startActivity(intent);
+
+            }
+        });
+
 
 
 //TODO add cutsom back button press
@@ -93,19 +105,10 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
            startActivity(intent);
 
 
+
        }
 
    }
 
-    private void updateList(List<String> newList) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                MyDrinks.this,
-                android.R.layout.simple_list_item_1,
-                newList
-        );
-
-        addedDrink.setAdapter(adapter);
-
-    }
 
 }
