@@ -1,6 +1,5 @@
 package com.example.gabekeyner.project_2.Main_Menus;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -13,7 +12,9 @@ import com.example.gabekeyner.project_2.DataBaseCritera.DrinksClass;
 import com.example.gabekeyner.project_2.DataBaseCritera.DrinksClassHelper;
 import com.example.gabekeyner.project_2.R;
 
-public class MyDrinkSelection extends AppCompatActivity implements View.OnClickListener{
+public class MyDrinkSelection extends AppCompatActivity implements View.OnClickListener {
+
+    //Declared EditText's private to this class
 
     private EditText name_input;
     private EditText type_input;
@@ -45,14 +46,16 @@ public class MyDrinkSelection extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+
             //set add_drink button to do save to db
             case R.id.add_drink:
-                if (addDrinkToDb()){
-                    Intent myIntent = new Intent(this, MyDrinks.class);
-                    startActivity(myIntent);
-
+                if (addDrinkToDb()) {
+                    finish();
+//                    Intent myIntent = new Intent(this, MyDrinks.class);
+//                    startActivity(myIntent);
                 }
                 break;
+
             //set cancel button to finish
             case R.id.cancel_button:
                 finish();
@@ -67,7 +70,7 @@ public class MyDrinkSelection extends AppCompatActivity implements View.OnClickL
         String name = name_input.getText().toString().trim();
         String desc = description.getText().toString().trim();
 
-        //Dont let the drink to be saved if alcoholtype, name, description are empty.
+        //Ensures that a drink cant be saved if alcoholtype, name, description are empty.
         if (TextUtils.isEmpty(alcoholType)) {
             type_input.setError("Missing Alcohol Type");
             return false;
@@ -77,29 +80,22 @@ public class MyDrinkSelection extends AppCompatActivity implements View.OnClickL
             return false;
         }
         if (TextUtils.isEmpty(desc)) {
-            description.setError("Missing Name");
+            description.setError("Missing Description");
             return false;
         }
 
-        //Set the ABV string to 0 if its empty
+        //Set the ABV% string to 0 if its empty
         String abvString = abv_input.getText().toString();
         double ABV = abvString.isEmpty() ? 0 : Integer.parseInt(abvString);
 
 
         //Instantiate a new Drink
-        DrinksClass addedDrink = new DrinksClass(alcoholType, name, ABV, desc,"yes");
+        DrinksClass addedDrink = new DrinksClass(alcoholType, name, ABV, desc, "yes");
 
         DrinksClassHelper helper = new DrinksClassHelper(MyDrinkSelection.this);
 
         //Save the Drink to the Database
         helper.addItem(addedDrink);
-
-
-
-
-
-
-
 
 
         Toast.makeText(MyDrinkSelection.this, "Drink as been add to you Bar", Toast.LENGTH_LONG).show();

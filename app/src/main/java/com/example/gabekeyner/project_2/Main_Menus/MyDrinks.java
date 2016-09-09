@@ -9,16 +9,20 @@ import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.gabekeyner.project_2.DataBaseCritera.DrinksClassHelper;
+import com.example.gabekeyner.project_2.MainActivity;
 import com.example.gabekeyner.project_2.R;
 
 
 public class MyDrinks extends AppCompatActivity implements View.OnClickListener {
 
-        CursorAdapter simpleCursorAdapter;
-        private ListView addedDrink;
+    CursorAdapter simpleCursorAdapter;
+    private ListView addedDrink;
+    Button menu_button;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,26 +31,23 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
 
 
 
-
-
         //List view for user added drink
 
         addedDrink = (ListView) findViewById(R.id.result_drink);
-//        namePlacer =
+
 
         //Find FAB by ID
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
-
         fab.setOnClickListener(this);
 
-        DrinksClassHelper helper = new DrinksClassHelper(this);
 
-
-        //CREATE cursors
-
-        Cursor cursor = DrinksClassHelper.getInstance(MyDrinks.this).getUserDrinks();
+//        DrinksClassHelper helper = new DrinksClassHelper(this);
+//
+//        //CREATE cursors
+//
+//        Cursor cursor = DrinksClassHelper.getInstance(MyDrinks.this).getUserDrinks();
 
 
         String[] columns = new String[]{DrinksClassHelper.COL_NAME, DrinksClassHelper.COL_ABV, DrinksClassHelper
@@ -56,7 +57,7 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
         simpleCursorAdapter = new SimpleCursorAdapter(
                 MyDrinks.this,
                 R.layout.list_item,
-                cursor,
+                null,
                 columns,
                 viewNames,
                 0
@@ -66,49 +67,67 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
         ListView listView = (ListView) findViewById(R.id.result_drink);
 
 
-
         //Simple Cursor Adapter
         listView.setAdapter(simpleCursorAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+        //Set an onItemClickListener to the list view so that it starts a intent.
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Intent intent = new Intent(MyDrinks.this,ClickedDrinkItem.class);
+                Intent intent = new Intent(MyDrinks.this, ClickedDrinkItem.class);
                 Cursor cursor = simpleCursorAdapter.getCursor();
 
+                //Find the intent by it COL_ID
                 cursor.moveToPosition(i);
-                intent.putExtra("id",cursor.getInt(cursor.getColumnIndex(DrinksClassHelper.COL_ID)));
+                intent.putExtra("id", cursor.getInt(cursor.getColumnIndex(DrinksClassHelper.COL_ID)));
                 startActivity(intent);
+
+            }
+
+            });
+
+        //Menu Button
+
+        Button menu_button = (Button)findViewById(R.id.menu_button);
+        menu_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                MyDrinks.this.finish();
 
             }
         });
 
+    }
+// will run whenever activity is visible
+    @Override
+    protected void onStart() {
+        DrinksClassHelper helper = new DrinksClassHelper(this);
 
+        //CREATE cursors
 
-//TODO add cutsom back button press
-        //TODO add cutsom back button press
-        //TODO add cutsom back button press
-        //TODO add cutsom back button press
+        Cursor cursor = DrinksClassHelper.getInstance(MyDrinks.this).getUserDrinks();
 
+        simpleCursorAdapter.changeCursor(cursor);
 
-
-
+        super.onStart();
     }
 
-   @Override
+    //On click on the Floating Action button for a new drink
+    @Override
     public void onClick(View v) {
 
-       if (v == findViewById(R.id.fab)) {
+        if (v == findViewById(R.id.fab)) {
 
-           Intent intent = new Intent(this, MyDrinkSelection.class);
-           startActivity(intent);
+            Intent intent = new Intent(this, MyDrinkSelection.class);
+            startActivity(intent);
 
 
+        }
 
-       }
-
-   }
+    }
 
 
 }

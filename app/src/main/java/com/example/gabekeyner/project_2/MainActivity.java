@@ -5,25 +5,26 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.gabekeyner.project_2.Main_Menus.Explore;
 import com.example.gabekeyner.project_2.Main_Menus.MyDrinks;
 
 /*TODO REQUIREMENTS
--[x]Have a theme and display data related to that theme.
--[]Allow the user to search by at least three different search criterias
-    Examples for a shopping app: name, price, availability, size, description, etc.
--[]Show results in separate entries/pages to the user, including descriptions, images, and whatever else you like
--[]Gather data for the search results from the database
--[]Allow the user to add rows to a database, which they can view at any time
--[]Incorporate Object Oriented principles into your app
-    e.g. create a class that defines all of the database entries and more specific classes that extend it.
+-[x]Have a theme and display data related to that theme:
+    Great Gatsby
+-[*]Allow the user to search by at least three different search criterias:
+   for a shopping app: name,abv%, description.
+-[*]Show results in separate entries/pages to the user, including :descriptions
+-[*]Gather data for the search results from the database
+-[*]Allow the user to add rows to a database, which they can view at any time:
+    "Add a new Drinkk Floating Action Button"
+-[*]Incorporate Object Oriented principles into your app
+    DrinksClass:has gives each drink a Name , Type of Alcohol,ABV%, Description.
 -[*]Contain code comments, explaining the functionality behind sections of code
 -[*]Include at least 4 user stories in the readme.md
--[]Include espresso tests for your app
--[]Ensure that you add a sufficient number of tests for the features of each screen of your app
+-[*]Include espresso tests for your app
+-[*]Ensure that you add a sufficient number of tests for the features of each screen of your app
 
 Bonus:
 -[]Use relationships between tables (highly recommended)
@@ -39,7 +40,6 @@ Bonus:
 public class MainActivity extends AppCompatActivity {
 
     //Declare your buttons
-    ImageView imageView;
 
     Button myDrinksBtn;
     Button exploreBtn;
@@ -49,17 +49,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//
-//        ImageView imageView = (ImageView) findViewById(R.id.imageView);
-//        Picasso.with(this)
-//                .load("http://holyground32.blogspot.com")
-//                .into(imageView);
 
 
-
-//TODO Set on click listener to your {My_drinks Button}
-//TODO and {Explore Button} to start those separate activities
-
+//[*] TODO Set on click listener to your {My_drinks Button}
 
 
         myDrinksBtn = (Button) findViewById(R.id.my_drinks);
@@ -73,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+//[*] TODO  and {Explore Button} to start those separate activities
 
-//have explore button start Explore Activity
 
         exploreBtn = (Button) findViewById(R.id.explore);
         exploreBtn.setOnClickListener(new View.OnClickListener() {

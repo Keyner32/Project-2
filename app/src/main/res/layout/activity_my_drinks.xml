@@ -11,7 +11,7 @@
 
 
     <ListView
-        android:padding="20dp"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:divider="@android:color/transparent"
@@ -42,5 +42,14 @@
         android:src="@android:drawable/ic_menu_add"
         app:backgroundTint="#FF73602A"
         />
+    <Button
+        android:layout_marginLeft="285dp"
+        android:id="@+id/menu_button"
+        android:text="Menu"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF73602A"/>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -34,7 +34,6 @@ public class ExploreSelection extends AppCompatActivity {
 
 
 
-
         //Instantiate subclass of SQLiteHelper
 
         DrinksClassHelper helper = new DrinksClassHelper(this);
@@ -49,6 +48,7 @@ public class ExploreSelection extends AppCompatActivity {
 
         String[] columns = new String[]{DrinksClassHelper.COL_NAME, DrinksClassHelper.COL_ABV, DrinksClassHelper.COL_DESCRIPTION};
         int[] viewNames = new int[]{R.id.list_item_name, R.id.list_item_ABV, R.id.list_item_description};
+        //Create Cursor Adapter
         CursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(
                 ExploreSelection.this,
                 R.layout.list_item,

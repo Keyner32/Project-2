@@ -18,15 +18,16 @@ import com.example.gabekeyner.project_2.R;
 
 public class Explore extends AppCompatActivity implements View.OnClickListener {
 
+    // Declare the Strings of each categories as one name
     private static final String BEER = "beer";
     private static final String WINE = "wine";
     private static final String MIXED_DRINK = "mixed drink";
 
 
-    public DrinksClassHelper helper;
     private ListView mSearchBarView;
-    private CursorAdapter mCursorAdapter;
 
+    private CursorAdapter mCursorAdapter;
+    public DrinksClassHelper helper;
 
 
     @Override
@@ -35,15 +36,15 @@ public class Explore extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_explore);
 
 
-
         Button beerBtn = (Button) findViewById(R.id.beerBtn);
         Button wineBtn = (Button) findViewById(R.id.wineBtn);
         Button mixedDrinkBtn = (Button) findViewById(R.id.mixedDrinksBtn);
 
+
+        //set OnClickListeners to button
         beerBtn.setOnClickListener(this);
         wineBtn.setOnClickListener(this);
         mixedDrinkBtn.setOnClickListener(this);
-
 
 
         mSearchBarView = (ListView) findViewById(R.id.search_bar);
@@ -51,10 +52,9 @@ public class Explore extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-
     @Override
     public void onClick(View v) {
-
+        //String type = a string that is define as beer, wine, mixed drinks
         String type = "";
 
         switch (v.getId()) {
@@ -81,7 +81,7 @@ public class Explore extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-    //TODO Search Bar
+    //[*] TODO Search Bar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

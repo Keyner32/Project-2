@@ -51,7 +51,7 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_DRINKS);
 
-        insert(db, "beer", "corona", 2.0, "mexican beer","no");
+        insert(db, "beer", "corona", 2.0, "mexican beer", "no");
         insert(db, "beer", "budlight", 1.0, "american beer", "no");
         insert(db, "beer", "coors", 3.0, "american beer", "no");
         insert(db, "beer", "805", 4.0, "imported beer", "no");
@@ -65,9 +65,12 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         insert(db, "mixed drink", "77", 12.0, "sevens whisky & seven up", "no");
         insert(db, "mixed drink", "Blue Hawaiian", 10.0, "Blue Drink", "no");
         insert(db, "mixed drink", "Long Island", 12.0, "Mixture of vokdas", "no");
+/*
+        insert(db, "wine", "Bardolino ", 8.0, "A light red wine from the Veneto Region of Italy.", "no");
+        insert(db, "wine", "Barolo", 11.0, "Highly regarded Italian red, made from Nebbiolo grapes.", "no");
+        insert(db, "wine", "Blush", 9.0, "American term for rosé. Any wine that is pink in color.", "no");
 
-
-
+*/
     }
 
     @Override
@@ -112,7 +115,7 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         values.put(COL_NAME, addedDrink.getName());
         values.put(COL_ABV, addedDrink.getABV());
         values.put(COL_DESCRIPTION, addedDrink.getDescription());
-        values.put(COL_USER,addedDrink.getUser_drink());
+        values.put(COL_USER, addedDrink.getUser_drink());
 
 
         long id = db.insert(TABLE_NAME, null, values);
@@ -123,7 +126,7 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
     public DrinksClass getDrinksClass(int id) {
         SQLiteDatabase db = getReadableDatabase();
 
-        String[] projection = new String[]{COL_ID, COL_ALCOHOL_TYPE, COL_NAME, COL_ABV, COL_DESCRIPTION,COL_USER};
+        String[] projection = new String[]{COL_ID, COL_ALCOHOL_TYPE, COL_NAME, COL_ABV, COL_DESCRIPTION, COL_USER};
 
         String selection = COL_ID + " = ?";
 
@@ -138,10 +141,10 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         String description = cursor.getString(cursor.getColumnIndex(COL_DESCRIPTION));
         String user_drink = cursor.getString(cursor.getColumnIndex(COL_USER));
 
-        return new DrinksClass(alcoholType, name, ABV, description,user_drink);
+        return new DrinksClass(alcoholType, name, ABV, description, user_drink);
     }
 
-    public int update(String alcoholType, String name, Double ABV, String description,String user_drink) {
+    public int update(String alcoholType, String name, Double ABV, String description, String user_drink) {
         SQLiteDatabase db = getReadableDatabase();
         ContentValues values = new ContentValues();
         values.put(COL_ALCOHOL_TYPE, alcoholType);
@@ -163,18 +166,16 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         db.delete(TABLE_NAME, selection, selectionArgs);
     }
 
-
-
-
-
+    //This is the query that gets All Drinks
     public Cursor getAllDrinks(String type) {
 
         SQLiteDatabase db = getReadableDatabase();
 
+    //When ever a drink was entered into the database with the maker it will return the user_drink column as "no"
         Cursor cursor = db.query(TABLE_NAME,
                 COLUMN_SELECTION,
-                COL_ALCOHOL_TYPE + " = ?"  + " AND " + COL_USER + " = ?",
-                new String[]{type,"no"},
+                COL_ALCOHOL_TYPE + " = ?" + " AND " + COL_USER + " = ?",
+                new String[]{type, "no"},
                 null,
                 null,
                 null,
@@ -183,12 +184,13 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
-    //this is is the query that get the user added drink
 
+    //This is the query that gets the User Added Drink
     public Cursor getUserDrinks() {
 
         SQLiteDatabase db = getReadableDatabase();
 
+        //When ever a drink was entered into the database with the maker it will return the user_drink column as "yes"
         Cursor cursor = db.query(TABLE_NAME,
                 COLUMN_SELECTION,
                 COL_USER + " = ?",
@@ -204,7 +206,7 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
     //Use this method to search all by name or type or abv or description
 
-    public Cursor searchAll(String query){
+    public Cursor searchAll(String query) {
 
         SQLiteDatabase db = getReadableDatabase();
 
@@ -218,60 +220,66 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
                 null);
 
 
-
         return cursor;
     }
-    public String getTitleByID(int id){
+
+    //Use this method to get the name of the list item to display in ClickedDrinkItem
+    public String getTitleByID(int id) {
+
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_NAME,
                 new String[]{COL_NAME},
-                COL_ID+" = ?",
+                COL_ID + " = ?",
                 new String[]{String.valueOf(id)},
                 null,
                 null,
                 null,
                 null);
 
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             return cursor.getString(cursor.getColumnIndex(COL_NAME));
         } else {
             return "No Description Found";
         }
     }
 
-    public String getAbvByID(int id){
+    //Use this method to get the name of the list item to display in ClickedDrinkItem
+    public String getAbvByID(int id) {
+
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_NAME,
                 new String[]{COL_ABV},
-                COL_ID+" = ?",
+                COL_ID + " = ?",
                 new String[]{String.valueOf(id)},
                 null,
                 null,
                 null,
                 null);
 
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             return cursor.getString(cursor.getColumnIndex(COL_ABV));
         } else {
             return "No Description Found";
         }
     }
 
-    public String getDescByID(int id){
+    //Use this method to get the name of the list item to display in ClickedDrinkItem
+    public String getDescByID(int id) {
+
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_NAME,
                 new String[]{COL_DESCRIPTION},
-                COL_ID+" = ?",
+                COL_ID + " = ?",
                 new String[]{String.valueOf(id)},
                 null,
                 null,
                 null,
                 null);
 
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             return cursor.getString(cursor.getColumnIndex(COL_DESCRIPTION));
         } else {
             return "No Description Found";

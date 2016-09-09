@@ -24,8 +24,8 @@ public class SearchResults extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
 
+        //Call for intent
         handleIntent(getIntent());
-
 
 
         searchView = (ListView) findViewById(R.id.search_result);
@@ -34,7 +34,7 @@ public class SearchResults extends AppCompatActivity {
     }
 
 
-    //TODO Search Bar
+    //[*]TODO Search Bar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -60,7 +60,7 @@ public class SearchResults extends AppCompatActivity {
 
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
-
+            //searchAll (query) lets the user search by any column
             Cursor cursor = DrinksClassHelper.getInstance(this).searchAll(query);
 
             String[] columns = new String[]{DrinksClassHelper.COL_NAME, DrinksClassHelper.COL_ABV, DrinksClassHelper.COL_DESCRIPTION};
