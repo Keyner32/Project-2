@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         playMusic.start();
 
+
 //[*] TODO Set on click listener to your {My_drinks Button}
 
 
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, MyDrinks.class);
                 startActivity(intent);
                 Toast.makeText(MainActivity.this, "Welcome Back Old Friend", Toast.LENGTH_SHORT).show();
-
+                playMusic.pause();
             }
         });
 
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Lets Find A New Drink", Toast
                         .LENGTH_SHORT)
                         .show();
+                playMusic.pause();
             }
         });
 
