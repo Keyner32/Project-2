@@ -1,6 +1,9 @@
 # Project-2
 
 # What'll It Be. . .
+
+<img src ="https://github.com/Keyner32/Project-2/blob/master/icon_image.png?raw=true" alt="Pin Icon" width="200" height="200">
+
 ## Synopsis
 
 This application will let the user find about a variety of drinks in world. You are fronted by two different activity's the **My Drinks** activity or **Explore** activity. The **My Drinks** activity will show you your previously saved drinks and will be able to add more to them when ever. As well as being able to input your own made drinks as long as it has a `Name / Type of Alcohol / ABV / Description`.The **Explore** button will list the most popular drinks names ranging from **BEERS**, **WINES**, **MIXED DRINKS**. 
@@ -23,10 +26,10 @@ Being a young adult I've found myself inexperienced when going out to bars or pl
 
 
 ## Prototypes
-<img src ="https://github.com/Keyner32/Project-2/blob/master/Screenshot_20160909-051647.png?raw=true" alt="First Page" width="100" height="200"> 
-<img src ="https://github.com/Keyner32/Project-2/blob/master/Screenshot_20160909-051700.png?raw=true" alt="First Page"  width="100" height="200"> 
-<img src ="https://github.com/Keyner32/Project-2/blob/master/Screenshot_20160909-051713.png?raw=true" alt="First Page"  width="100" height="200"> 
-<img src ="https://github.com/Keyner32/Project-2/blob/master/Screenshot_20160909-090314.png?raw=true" alt="First Page"  width="100" height="200"> 
+<img src ="https://github.com/Keyner32/Project-2/blob/master/Screenshot_20160909-051647.png?raw=true" alt="First Page" width="300" height="400"> 
+<img src ="https://github.com/Keyner32/Project-2/blob/master/Screenshot_20160909-051700.png?raw=true" alt="First Page"  width="300" height="400"> 
+<img src ="https://github.com/Keyner32/Project-2/blob/master/Screenshot_20160909-051713.png?raw=true" alt="First Page"  width="300" height="400"> 
+<img src ="https://github.com/Keyner32/Project-2/blob/master/Screenshot_20160909-090314.png?raw=true" alt="First Page"  width="300" height="400"> 
 ## User Stories
 
 - `As a` **user**, `I want` to be able to see my drinks that I saved previously, `so that` I can reference them.
