@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:hint="@string/name"
+        android:textColor="#ffffff"
         android:textColorHint="#ffffff"
         android:textSize="30sp"/>
 
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:hint="@string/type"
+        android:textColor="#ffffff"
         android:textColorHint="#ffffff"
         android:textSize="30sp"/>
     <EditText
@@ -30,6 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:hint="@string/desc"
+        android:textColor="#ffffff"
         android:textColorHint="#ffffff"
         android:textSize="30sp"/>
 
@@ -40,6 +43,7 @@
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:hint="@string/abv"
         android:inputType="number"
+        android:textColor="#ffffff"
         android:textColorHint="#ffffff"
         android:textSize="30sp"/>
 

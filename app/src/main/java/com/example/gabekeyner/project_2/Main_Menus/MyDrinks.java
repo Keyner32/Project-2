@@ -28,13 +28,6 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_my_drinks);
 
 
-        String namePlacer = "Name : ";
-        String abvPlacer  = "ABV% : ";
-        String descriptionPlacer  = "Description : ";
-//
-//        String nameLayout = namePlacer + DrinksClassHelper.COL_NAME;
-//        String abvLayout = abvPlacer + DrinksClassHelper.COL_ABV;
-//        String descriptionLayout = descriptionPlacer + DrinksClassHelper.COL_DESCRIPTION;
 
 
 
