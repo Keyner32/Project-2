@@ -24,7 +24,6 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
 
     public DrinksClassHelper helper;
     CursorAdapter simpleCursorAdapter;
-    Button removeButton;
     Cursor cur;
     private ListView addedDrink;
 
@@ -160,10 +159,6 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
         simpleCursorAdapter.changeCursor(cursor);
 
         super.onStart();
-    }
-
-    private void updateList() {
-        cur.requery();
     }
 
 }

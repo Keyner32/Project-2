@@ -11,8 +11,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.gabekeyner.project_2.Main_Menus.Explore;
 import com.example.gabekeyner.project_2.R;
 
 public class SearchResults extends AppCompatActivity {
@@ -30,7 +33,15 @@ public class SearchResults extends AppCompatActivity {
 
         searchView = (ListView) findViewById(R.id.search_result);
 
+        Button menu_button = (Button) findViewById(R.id.menu_button);
+        menu_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Explore.class);
+                SearchResults.this.finish();
 
+            }
+        });
     }
 
 
