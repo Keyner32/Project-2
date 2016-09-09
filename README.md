@@ -19,9 +19,14 @@ Being a young adult I've found myself inexperienced when going out to bars or pl
 
 
 ## Entity relationship diagram 
+<img src ="https://github.com/Keyner32/Project-2/blob/master/erdplus-diagram.png?raw=true" alt="First Page" style="width:100px;height:200px;"> 
+
 
 ## Prototypes
-
+<img src ="https://github.com/Keyner32/Project-2/blob/master/Screenshot_20160909-051647.png?raw=true" alt="First Page" width="100" height="200"> 
+<img src ="https://github.com/Keyner32/Project-2/blob/master/Screenshot_20160909-051700.png?raw=true" alt="First Page"  width="100" height="200"> 
+<img src ="https://github.com/Keyner32/Project-2/blob/master/Screenshot_20160909-051713.png?raw=true" alt="First Page"  width="100" height="200"> 
+<img src ="https://github.com/Keyner32/Project-2/blob/master/Screenshot_20160909-090314.png?raw=true" alt="First Page"  width="100" height="200"> 
 ## User Stories
 
 - `As a` **user**, `I want` to be able to see my drinks that I saved previously, `so that` I can reference them.
