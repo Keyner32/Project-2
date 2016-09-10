@@ -64,10 +64,11 @@ public class MainActivity extends AppCompatActivity {
         myDrinksBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                playMusic.pause();
                 Intent intent = new Intent(MainActivity.this, MyDrinks.class);
                 startActivity(intent);
                 Toast.makeText(MainActivity.this, "Welcome Back Old Friend", Toast.LENGTH_SHORT).show();
-                playMusic.pause();
+
             }
         });
 

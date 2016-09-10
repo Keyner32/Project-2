@@ -82,7 +82,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void myDrinkButtonClick() throws Exception {
+    public void myDrinkButtonClick1() throws Exception {
 
 
         onView(withId(R.id.my_drinks))
@@ -97,38 +97,74 @@ public class MainActivityTest {
                 .perform(click(), clearText(), typeText("english brown ale, from nederland"), closeSoftKeyboard());
         onView(withId(R.id.abv_input))
                 .perform(click(), clearText(), typeText("4"), closeSoftKeyboard());
-    }
-
-
-    @Test
-    public void showBeers() throws Exception {
-
-        onView(withId(R.id.explore))
-                .perform(click());
-        onView(withId(R.id.beerBtn))
+        onView(withId(R.id.add_drink))
                 .perform(click());
 
     }
 
     @Test
-    public void showWines() throws Exception {
+    public void myDrinkButtonClick2() throws Exception {
 
-        onView(withId(R.id.explore))
+
+        onView(withId(R.id.my_drinks))
                 .perform(click());
-        onView(withId(R.id.wineBtn))
+        onView(withId(R.id.fab))
+                .perform(click());
+        onView(withId(R.id.name_input))
+                .perform(click(), clearText(), typeText("foster"), closeSoftKeyboard());
+        onView(withId(R.id.type_input))
+                .perform(click(), clearText(), typeText("beer"), closeSoftKeyboard());
+        onView(withId(R.id.description))
+                .perform(click(), clearText(), typeText("Australian"), closeSoftKeyboard());
+        onView(withId(R.id.abv_input))
+                .perform(click(), clearText(), typeText("4"), closeSoftKeyboard());
+        onView(withId(R.id.add_drink))
                 .perform(click());
 
     }
 
     @Test
-    public void showMixedDrinks() throws Exception {
+    public void myDrinkButtonClick3() throws Exception {
 
-        onView(withId(R.id.explore))
+
+        onView(withId(R.id.my_drinks))
                 .perform(click());
-        onView(withId(R.id.mixedDrinksBtn))
+        onView(withId(R.id.fab))
+                .perform(click());
+        onView(withId(R.id.name_input))
+                .perform(click(), clearText(), typeText("LA Water"), closeSoftKeyboard());
+        onView(withId(R.id.type_input))
+                .perform(click(), clearText(), typeText("mixed drink"), closeSoftKeyboard());
+        onView(withId(R.id.description))
+                .perform(click(), clearText(), typeText("vodka"), closeSoftKeyboard());
+        onView(withId(R.id.abv_input))
+                .perform(click(), clearText(), typeText("5"), closeSoftKeyboard());
+        onView(withId(R.id.add_drink))
                 .perform(click());
 
     }
+    @Test
+    public void myDrinkButtonClick() throws Exception {
+
+
+        onView(withId(R.id.my_drinks))
+                .perform(click());
+        onView(withId(R.id.fab))
+                .perform(click());
+        onView(withId(R.id.name_input))
+                .perform(click(), clearText(), typeText("Adios Mother Fucker"), closeSoftKeyboard());
+        onView(withId(R.id.type_input))
+                .perform(click(), clearText(), typeText("mixed drink"), closeSoftKeyboard());
+        onView(withId(R.id.description))
+                .perform(click(), clearText(), typeText("alot of different liquors"), closeSoftKeyboard());
+        onView(withId(R.id.abv_input))
+                .perform(click(), clearText(), typeText("13"), closeSoftKeyboard());
+        onView(withId(R.id.add_drink))
+                .perform(click());
+
+    }
+
+
 
 
 }
