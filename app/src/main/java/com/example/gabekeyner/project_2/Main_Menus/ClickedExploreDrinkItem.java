@@ -3,28 +3,31 @@ package com.example.gabekeyner.project_2.Main_Menus;
 import android.os.Bundle;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.gabekeyner.project_2.DataBaseCritera.DrinksClassHelper;
 import com.example.gabekeyner.project_2.R;
 
-public class ClickedDrinkItem extends AppCompatActivity {
-
+public class ClickedExploreDrinkItem extends AppCompatActivity {
 
     TextView titleView;
     TextView abvView;
     TextView descView;
-    public DrinksClassHelper helper;
     CursorAdapter simpleCursorAdapter;
-
+    public ListView detailsDrinksListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clicked_drink_item);
+        setContentView(R.layout.activity_clicked_explore_drink_item);
 
 
-        final DrinksClassHelper helper = DrinksClassHelper.getInstance(ClickedDrinkItem.this);
+
+
+
+
+        final DrinksClassHelper helper = DrinksClassHelper.getInstance(ClickedExploreDrinkItem.this);
 
         titleView = (TextView) findViewById(R.id.titleView);
 
@@ -44,7 +47,8 @@ public class ClickedDrinkItem extends AppCompatActivity {
         abvView.setText(abv);
         descView.setText(desc);
 
-
-
     }
+
+
+
 }

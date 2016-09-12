@@ -7,6 +7,7 @@ import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -17,7 +18,7 @@ public class ExploreSelection extends AppCompatActivity {
 
 
     public ListView DrinksListView;
-
+    CursorAdapter simpleCursorAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class ExploreSelection extends AppCompatActivity {
         String type = intent.getExtras().getString("type");
 
 
+
         //Instantiate subclass of SQLiteHelper
 
         DrinksClassHelper helper = new DrinksClassHelper(this);
@@ -44,12 +46,12 @@ public class ExploreSelection extends AppCompatActivity {
         Cursor cursor = DrinksClassHelper.getInstance(ExploreSelection.this).getAllDrinks(type);
 
 
-        String[] columns = new String[]{DrinksClassHelper.COL_NAME, DrinksClassHelper.COL_ABV, DrinksClassHelper.COL_DESCRIPTION};
-        int[] viewNames = new int[]{R.id.list_item_name, R.id.list_item_ABV, R.id.list_item_description};
+        String[] columns = new String[]{DrinksClassHelper.COL_NAME};
+        int[] viewNames = new int[]{R.id.list_item_name};
         //Create Cursor Adapter
-        CursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(
+        final CursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(
                 ExploreSelection.this,
-                R.layout.list_item,
+                R.layout.list_item_name,
                 cursor,
                 columns,
                 viewNames,
@@ -63,6 +65,19 @@ public class ExploreSelection extends AppCompatActivity {
         //Simple Cursor Adapter
         listView.setAdapter(simpleCursorAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(ExploreSelection.this, ClickedExploreDrinkItem.class);
+                Cursor cursor = simpleCursorAdapter.getCursor();
+                cursor.moveToPosition(i);
+                intent.putExtra("id", cursor.getInt(cursor.getColumnIndex(DrinksClassHelper.COL_ID)));
+                startActivity(intent);
+
+            }
+        });
+
+        //Button to take you back tot categories
         Button menu_button = (Button) findViewById(R.id.menu_button);
         menu_button.setOnClickListener(new View.OnClickListener() {
             @Override

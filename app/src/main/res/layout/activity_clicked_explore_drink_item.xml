@@ -8,10 +8,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/my_drink_image"
     android:orientation="vertical"
-    tools:context="com.example.gabekeyner.project_2.Main_Menus.ClickedDrinkItem">
-
+    tools:context="com.example.gabekeyner.project_2.Main_Menus.ClickedExploreDrinkItem"
+    android:background="@drawable/explore_image">
 
     <ImageView
 
@@ -94,6 +93,5 @@
             android:textColor="#ffffff"
             android:textStyle="bold|italic"/>
     </LinearLayout>
-
 
 </LinearLayout>

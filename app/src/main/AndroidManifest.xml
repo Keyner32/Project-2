@@ -8,7 +8,7 @@
         android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="What'll It Be"
+        android:label="What&apos;ll It Be"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
@@ -46,6 +46,8 @@
                 android:resource="@xml/searchable"/>
         </activity>
         <activity android:name=".Main_Menus.ClickedDrinkItem">
+        </activity>
+        <activity android:name=".Main_Menus.ClickedExploreDrinkItem">
         </activity>
     </application>
 

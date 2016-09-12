@@ -296,4 +296,19 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         }
     }
 
+    public Cursor getAllDrinksByID(int id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sid = String.valueOf(id);
+        Cursor cursor = db.query(TABLE_NAME,
+                new String[]{COL_NAME, COL_ABV, COL_DESCRIPTION},
+                COL_ID + " = ?",
+                new String[]{sid},
+                null,
+                null,
+                null,
+                null);
+        return cursor;
+    }
+
 }

@@ -1,13 +1,11 @@
 package com.example.gabekeyner.project_2.Main_Menus;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.SimpleCursorAdapter;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,11 +25,11 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
     Cursor cur;
     private ListView addedDrink;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_drinks);
-
 
         //List view for user added drink
 
@@ -45,13 +43,12 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
         fab.setOnClickListener(this);
 
 
-        String[] columns = new String[]{DrinksClassHelper.COL_NAME, DrinksClassHelper.COL_ABV, DrinksClassHelper
-                .COL_DESCRIPTION};
-        int[] viewNames = new int[]{R.id.list_item_name, R.id.list_item_ABV, R.id.list_item_description};
+        String[] columns = new String[]{DrinksClassHelper.COL_NAME,};
+        int[] viewNames = new int[]{R.id.list_item_name};
 
         simpleCursorAdapter = new SimpleCursorAdapter(
                 MyDrinks.this,
-                R.layout.list_item,
+                R.layout.list_item_name,
                 null,
                 columns,
                 viewNames,
@@ -66,56 +63,66 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
         listView.setAdapter(simpleCursorAdapter);
 
 
-        //Set an onItemClickListener to the list view so that it starts a intent.
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
                 Intent intent = new Intent(MyDrinks.this, ClickedDrinkItem.class);
                 Cursor cursor = simpleCursorAdapter.getCursor();
-
-                //Find the intent by it COL_ID
+//                Find the intent by it COL_ID
                 cursor.moveToPosition(i);
                 intent.putExtra("id", cursor.getInt(cursor.getColumnIndex(DrinksClassHelper.COL_ID)));
                 startActivity(intent);
-
             }
-
-
         });
+
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                AlertDialog.Builder ad = new AlertDialog.Builder(MyDrinks.this);
-                ad.setTitle("Delete");
-                ad.setMessage("Sure you want to delete record ?");
-                final int position = i;
-                ad.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        cur.moveToPosition(position);
+                cur.moveToPosition(i);
                         helper.delete(cur.getInt(cur.getColumnIndex(DrinksClassHelper.COL_ID)));
                         cur = helper.getAllDrinks("yes");
                         simpleCursorAdapter.swapCursor(cur);
                         listView.setAdapter(simpleCursorAdapter);
-                        Toast.makeText(MyDrinks.this, "Your gonna have to pay for that $$$", Toast.LENGTH_SHORT).
+                        Toast.makeText(MyDrinks.this, "Your gonna have to pay for that $$$", Toast.LENGTH_SHORT).show();
 
-                                show();
-                    }
-                });
-                ad.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                ad.show();
-                return false;
-
+                return true;
             }
         });
+
+//
+//        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                AlertDialog.Builder ad = new AlertDialog.Builder(MyDrinks.this);
+//                ad.setTitle("Delete");
+//                ad.setMessage("Sure you want to delete drink ?");
+//                final int position = i;
+//                ad.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        cur.moveToPosition(position);
+//                        helper.delete(cur.getInt(cur.getColumnIndex(DrinksClassHelper.COL_ID)));
+//                        cur = helper.getAllDrinks("yes");
+//                        simpleCursorAdapter.swapCursor(cur);
+//                        listView.setAdapter(simpleCursorAdapter);
+//                        Toast.makeText(MyDrinks.this, "Your gonna have to pay for that $$$", Toast.LENGTH_SHORT).
+//
+//                                show();
+//                    }
+//                });
+//                ad.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                });
+//                ad.show();
+//                return false;
+//
+//            }
+//        });
 
         //Menu Button
 
@@ -160,5 +167,6 @@ public class MyDrinks extends AppCompatActivity implements View.OnClickListener 
 
         super.onStart();
     }
+
 
 }
