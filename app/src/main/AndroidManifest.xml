@@ -49,6 +49,8 @@
         </activity>
         <activity android:name=".Main_Menus.ClickedExploreDrinkItem">
         </activity>
+        <activity android:name=".Main_Menus.SearchResultsClickedItem">
+        </activity>
     </application>
 
 </manifest>

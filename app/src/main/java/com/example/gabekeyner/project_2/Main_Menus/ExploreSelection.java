@@ -18,7 +18,7 @@ public class ExploreSelection extends AppCompatActivity {
 
 
     public ListView DrinksListView;
-    CursorAdapter simpleCursorAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

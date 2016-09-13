@@ -4,7 +4,6 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.CursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.gabekeyner.project_2.DataBaseCritera.DrinksClassHelper;
 import com.example.gabekeyner.project_2.MainActivity;
 import com.example.gabekeyner.project_2.R;
 
@@ -27,8 +25,7 @@ public class Explore extends AppCompatActivity implements View.OnClickListener {
 
     private ListView mSearchBarView;
 
-    private CursorAdapter mCursorAdapter;
-    public DrinksClassHelper helper;
+
 
 
     @Override

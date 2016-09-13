@@ -1,7 +1,6 @@
 package com.example.gabekeyner.project_2.Main_Menus;
 
 import android.os.Bundle;
-import android.support.v4.widget.CursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
@@ -14,8 +13,7 @@ public class ClickedDrinkItem extends AppCompatActivity {
     TextView titleView;
     TextView abvView;
     TextView descView;
-    public DrinksClassHelper helper;
-    CursorAdapter simpleCursorAdapter;
+
 
 
     @Override

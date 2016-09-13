@@ -12,15 +12,18 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.gabekeyner.project_2.Main_Menus.Explore;
+import com.example.gabekeyner.project_2.Main_Menus.SearchResultsClickedItem;
 import com.example.gabekeyner.project_2.R;
 
 public class SearchResults extends AppCompatActivity {
 
     public ListView searchView;
+    CursorAdapter simpleCursorAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +79,7 @@ public class SearchResults extends AppCompatActivity {
 
             String[] columns = new String[]{DrinksClassHelper.COL_NAME, DrinksClassHelper.COL_ABV, DrinksClassHelper.COL_DESCRIPTION};
             int[] viewNames = new int[]{R.id.list_item_name, R.id.list_item_ABV, R.id.list_item_description};
-            CursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(
+            final CursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(
                     SearchResults.this,
                     R.layout.list_item,
                     cursor,
@@ -89,6 +92,17 @@ public class SearchResults extends AppCompatActivity {
             ListView listView = (ListView) findViewById(R.id.search_result);
             listView.setAdapter(simpleCursorAdapter);
 
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Intent intent = new Intent(SearchResults.this, SearchResultsClickedItem.class);
+                    Cursor cursor = simpleCursorAdapter.getCursor();
+                    cursor.moveToPosition(i);
+                    intent.putExtra("id", cursor.getInt(cursor.getColumnIndex(DrinksClassHelper.COL_ID)));
+                    startActivity(intent);
+
+                }
+            });
         }
     }
 

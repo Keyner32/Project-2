@@ -7,24 +7,18 @@ import android.widget.TextView;
 import com.example.gabekeyner.project_2.DataBaseCritera.DrinksClassHelper;
 import com.example.gabekeyner.project_2.R;
 
-public class ClickedExploreDrinkItem extends AppCompatActivity {
-
+public class SearchResultsClickedItem extends AppCompatActivity {
     TextView titleView;
     TextView abvView;
     TextView descView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clicked_explore_drink_item);
+        setContentView(R.layout.activity_search_results_clicked_item);
 
 
-
-
-
-
-        final DrinksClassHelper helper = DrinksClassHelper.getInstance(ClickedExploreDrinkItem.this);
+        final DrinksClassHelper helper = DrinksClassHelper.getInstance(SearchResultsClickedItem.this);
 
         titleView = (TextView) findViewById(R.id.titleView);
 
@@ -45,7 +39,4 @@ public class ClickedExploreDrinkItem extends AppCompatActivity {
         descView.setText(desc);
 
     }
-
-
-
 }
