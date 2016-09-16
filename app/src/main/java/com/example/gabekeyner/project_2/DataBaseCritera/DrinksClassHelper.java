@@ -14,7 +14,7 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
     //TODO Set up a universal database for all of your drinks.
 
-    private static final int DB_VERSION = 5;
+    private static final int DB_VERSION = 7;
     public static final String DB_NAME = "WHAT'LL_IT_BE3.db";
     public static final String TABLE_NAME = "DRINKS3";
 
@@ -72,7 +72,7 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         insert(db, "wine", "Cabernet Sauvignon", 8.0, "Currant, Plum, Black Cherry & Spice, with notes of Olive, Vanilla Mint..", "no");
         insert(db, "wine", "Carmenere", 11.0, "Imported to Chile in the 1850s.", "no");
         insert(db, "wine", "Charbono'", 9.0, "This grape has dwindled in acreage, often lean and tannic.", "no");
-        insert(db, "mixed drink", "Piña Colada ", 8.0, "Is a sweet cocktail made with rum, coconut cream or coconut milk, and pineapple juice", "no");
+        insert(db, "mixed drink", "Pina Colada ", 8.0, "Is a sweet cocktail made with rum, coconut cream or coconut milk, and pineapple juice", "no");
         insert(db, "mixed drink", "Mojito", 11.0, "White rum, sugar, lime juice, soda water, and mint.", "no");
         insert(db, "mixed drink", "White Russian", 9.0, "made with vodka, coffee liqueur, and cream served with ice in an Old Fashioned glass,", "no");
         insert(db, "beer", "Budweiser", 3.0, " American-style pale lager", "no");

@@ -18,7 +18,6 @@
         android:layout_height= "200dp"
         android:scaleType="center"
         android:layout_gravity="center_horizontal|bottom"
-        android:src="@drawable/beer_display_image"
         android:id="@+id/imageView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"

@@ -2,6 +2,7 @@ package com.example.gabekeyner.project_2.Main_Menus;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gabekeyner.project_2.DataBaseCritera.DrinksClassHelper;
@@ -11,6 +12,7 @@ public class SearchResultsClickedItem extends AppCompatActivity {
     TextView titleView;
     TextView abvView;
     TextView descView;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +28,20 @@ public class SearchResultsClickedItem extends AppCompatActivity {
 
         descView = (TextView) findViewById(R.id.descView);
 
+//        imageView = (ImageView) findViewById(R.id.imageView);
+
         int id = getIntent().getIntExtra("id", -1);
 
         String title = helper.getTitleByID(id);
         String abv = helper.getAbvByID(id);
         String desc = helper.getDescByID(id);
 
+//        switch(title){
+//
+//            case "corona":
+//                Picasso.with(context).load("image url").fetch();
+//                Picasso.with(context).load("image url").into(imageView);
+//        }
 
         //Set text to seleccted itme on list
         titleView.setText(title);
