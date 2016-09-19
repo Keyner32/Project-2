@@ -20,6 +20,7 @@
     <string name="abv_placer">ABV% :</string>
     <string name="description_placer">Description :</string>
     <string name="Drink">Drink :</string>
+    <string name="API">API</string>
 
 
 </resources>

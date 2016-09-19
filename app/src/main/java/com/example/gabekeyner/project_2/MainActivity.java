@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.gabekeyner.project_2.API.apiActivity;
 import com.example.gabekeyner.project_2.Main_Menus.Explore;
 import com.example.gabekeyner.project_2.Main_Menus.MyDrinks;
 
@@ -41,7 +42,7 @@ Bonus:
 public class MainActivity extends AppCompatActivity {
 
     //Declare your buttons
-
+    Button apiBtn;
     Button myDrinksBtn;
     Button exploreBtn;
 
@@ -84,6 +85,16 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Lets Find A New Drink", Toast
                         .LENGTH_SHORT)
                         .show();
+                playMusic.pause();
+            }
+        });
+
+        apiBtn = (Button) findViewById(R.id.API);
+        apiBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, apiActivity.class);
+                startActivity(intent);
                 playMusic.pause();
             }
         });

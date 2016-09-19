@@ -9,7 +9,16 @@
     tools:context="com.example.gabekeyner.project_2.MainActivity">
 
 
-
+    <Button
+        android:id="@+id/API"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="@string/API"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/my_drinks"
+        android:layout_marginTop="84dp"/>
     <Button
         android:id="@+id/my_drinks"
         android:layout_width="260dp"
