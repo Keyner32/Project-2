@@ -17,11 +17,11 @@
         android:id="@+id/show_api"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"/>
-    <ListView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/show_api"
         android:id="@+id/listView">
 
-    </ListView>
+    </TextView>
 </RelativeLayout>
