@@ -11,13 +11,16 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class DrinksClassHelper extends SQLiteOpenHelper {
 
-
-    //TODO Set up a universal database for all of your drinks.
-
+    /**
+     * Instantiating DataBase Name and Version
+     */
     private static final int DB_VERSION = 7;
     public static final String DB_NAME = "WHAT'LL_IT_BE3.db";
     public static final String TABLE_NAME = "DRINKS3";
 
+    /**
+     * Instantiating Columns In Database
+     */
     public static final String COL_ID = "_id";
     public static final String COL_ALCOHOL_TYPE = "alcohol_type";
     public static final String COL_NAME = "name";
@@ -28,6 +31,9 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
     public static final String[] COLUMN_SELECTION = {COL_ID, COL_ALCOHOL_TYPE, COL_NAME, COL_ABV, COL_DESCRIPTION, COL_USER};
 
+    /**
+     * Creating the DRINKS TABLE
+     */
     private static final String SQL_CREATE_DRINKS = " CREATE TABLE " + TABLE_NAME + " " + "( " +
             COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COL_ALCOHOL_TYPE + " TEXT, " +
@@ -37,16 +43,20 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
             COL_USER + " TEXT)";
 
     /**
-     * SQL command to delete our drinks table
+     * SQL Constructor
      */
-    private static final String SQL_DELETE_DRINKS = "DROP TABLE IF EXISTS " + TABLE_NAME;
-
-
     public DrinksClassHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
+    /**
+     * SQL command to delete our drinks table
+     */
+    private static final String SQL_DELETE_DRINKS = "DROP TABLE IF EXISTS " + TABLE_NAME;
 
+    /**
+     * Create the Database with Pre Data Inserted
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_DRINKS);
@@ -83,6 +93,9 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
     }
 
+    /**
+     * Upgrades The Database if Changes are Made
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(SQL_DELETE_DRINKS);
@@ -90,6 +103,9 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
     }
 
+    /**
+     * A Class Instance to Call for Methods
+     */
     public static DrinksClassHelper mInstance;
 
     public static DrinksClassHelper getInstance(Context context) {
@@ -100,9 +116,12 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
     }
 
+    /**
+     * Inserts Data into the Database
+     */
     public void insert(SQLiteDatabase db, String type, String name, double abv, String desc, String added) {
-        ContentValues values = new ContentValues();
 
+        ContentValues values = new ContentValues();
 
         values.put(COL_ALCOHOL_TYPE, type);
         values.put(COL_NAME, name);
@@ -114,7 +133,9 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
 
     }
 
-
+    /**
+     * Inserts Data into the Database
+     */
     public int addItem(DrinksClass addedDrink) {
 
         SQLiteDatabase db = getWritableDatabase();
@@ -133,26 +154,26 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         return ((int) id);
     }
 
-    public DrinksClass getDrinksClass(int id) {
-        SQLiteDatabase db = getReadableDatabase();
-
-        String[] projection = new String[]{COL_ID, COL_ALCOHOL_TYPE, COL_NAME, COL_ABV, COL_DESCRIPTION, COL_USER};
-
-        String selection = COL_ID + " = ?";
-
-        String[] selectionArgs = new String[]{String.valueOf(id)};
-
-        Cursor cursor = db.query(TABLE_NAME, projection, selection, selectionArgs, null, null, null, null);
-        cursor.moveToFirst();
-
-        String alcoholType = cursor.getString(cursor.getColumnIndex(COL_ALCOHOL_TYPE));
-        String name = cursor.getString(cursor.getColumnIndex(COL_NAME));
-        Double ABV = cursor.getDouble(cursor.getColumnIndex(COL_ABV));
-        String description = cursor.getString(cursor.getColumnIndex(COL_DESCRIPTION));
-        String user_drink = cursor.getString(cursor.getColumnIndex(COL_USER));
-
-        return new DrinksClass(alcoholType, name, ABV, description, user_drink);
-    }
+//    public DrinksClass getDrinksClass(int id) {
+//        SQLiteDatabase db = getReadableDatabase();
+//
+//        String[] projection = new String[]{COL_ID, COL_ALCOHOL_TYPE, COL_NAME, COL_ABV, COL_DESCRIPTION, COL_USER};
+//
+//        String selection = COL_ID + " = ?";
+//
+//        String[] selectionArgs = new String[]{String.valueOf(id)};
+//
+//        Cursor cursor = db.query(TABLE_NAME, projection, selection, selectionArgs, null, null, null, null);
+//        cursor.moveToFirst();
+//
+//        String alcoholType = cursor.getString(cursor.getColumnIndex(COL_ALCOHOL_TYPE));
+//        String name = cursor.getString(cursor.getColumnIndex(COL_NAME));
+//        Double ABV = cursor.getDouble(cursor.getColumnIndex(COL_ABV));
+//        String description = cursor.getString(cursor.getColumnIndex(COL_DESCRIPTION));
+//        String user_drink = cursor.getString(cursor.getColumnIndex(COL_USER));
+//
+//        return new DrinksClass(alcoholType, name, ABV, description, user_drink);
+//    }
 
     public int update(String alcoholType, String name, Double ABV, String description, String user_drink) {
         SQLiteDatabase db = getReadableDatabase();
@@ -166,6 +187,9 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         return ((int) id);
     }
 
+    /**
+     * Deletes Drinks
+     */
     public void delete(int id) {
         SQLiteDatabase db = getWritableDatabase();
 
@@ -176,12 +200,15 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         db.delete(TABLE_NAME, selection, selectionArgs);
     }
 
-    //This is the query that gets All Drinks
+    /**
+     * Populates All Drinks
+     * The prepared data will get a [ no ] to distinguish the whether it was a users or in the prepared data.
+     */
     public Cursor getAllDrinks(String type) {
 
         SQLiteDatabase db = getReadableDatabase();
 
-        //When ever a drink was entered into the database with the maker it will return the user_drink column as "no"
+
         Cursor cursor = db.query(TABLE_NAME,
                 COLUMN_SELECTION,
                 COL_ALCOHOL_TYPE + " = ?" + " AND " + COL_USER + " = ?",
@@ -194,13 +221,14 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
-
-    //This is the query that gets the User Added Drink
+    /**
+     * Populates Users Added Drink
+     * A User Drink will get a [ yes ] to distinguish the whether it was theres or in the prepared data.
+     */
     public Cursor getUserDrinks() {
 
         SQLiteDatabase db = getReadableDatabase();
 
-        //When ever a drink was entered into the database with the maker it will return the user_drink column as "yes"
         Cursor cursor = db.query(TABLE_NAME,
                 COLUMN_SELECTION,
                 COL_USER + " = ?",
@@ -211,11 +239,12 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
                 null);
 
         return cursor;
-
     }
 
-    //Use this method to search all by name or type or abv or description
-
+    /**
+     * Search Method
+     * Use this method to search all by name or type or abv or description
+     */
     public Cursor searchAll(String query) {
 
         SQLiteDatabase db = getReadableDatabase();
@@ -233,7 +262,10 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    //Use this method to get the name of the list item to display in ClickedDrinkItem
+    /**
+     * Search Method
+     * Use this method to get the name of the list item to display in ClickedDrinkItem
+     */
     public String getTitleByID(int id) {
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -254,7 +286,10 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         }
     }
 
-    //Use this method to get the name of the list item to display in ClickedDrinkItem
+    /**
+     * Search Method
+     * Use this method to get the name of the list item to display in ClickedDrinkItem
+     */
     public String getAbvByID(int id) {
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -275,7 +310,11 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         }
     }
 
-    //Use this method to get the name of the list item to display in ClickedDrinkItem
+    /**
+     * Search Method
+     * Use this method to get the name of the list item to display in ClickedDrinkItem
+     */
+
     public String getDescByID(int id) {
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -294,21 +333,6 @@ public class DrinksClassHelper extends SQLiteOpenHelper {
         } else {
             return "No Description Found";
         }
-    }
-
-    public Cursor getAllDrinksByID(int id) {
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        String sid = String.valueOf(id);
-        Cursor cursor = db.query(TABLE_NAME,
-                new String[]{COL_NAME, COL_ABV, COL_DESCRIPTION},
-                COL_ID + " = ?",
-                new String[]{sid},
-                null,
-                null,
-                null,
-                null);
-        return cursor;
     }
 
 }

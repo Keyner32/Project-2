@@ -10,37 +10,33 @@
 
 
     <Button
-        android:id="@+id/API"
-        android:layout_width="260dp"
-        android:layout_height="wrap_content"
-        android:text="@string/API"
-        android:textSize="30sp"
-        android:textStyle="italic"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/my_drinks"
-        android:layout_marginTop="84dp"/>
-    <Button
         android:id="@+id/my_drinks"
-        android:layout_width="260dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/explore"
         android:layout_marginBottom="109dp"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffff"
         android:text="@string/my_drinks"
-        android:textSize="30sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="25sp"
         android:textStyle="italic"
         />
 
     <Button
         android:id="@+id/explore"
-        android:layout_width="260dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/my_drinks"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="73dp"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffff"
         android:text="@string/explore"
-        android:textSize="30sp"
-        android:textStyle="italic"/>
+        android:textSize="25sp"
+        android:textStyle="italic"
+        android:fontFamily="sans-serif-condensed"/>
 
     <TextView
         android:id="@+id/Title"

@@ -7,18 +7,6 @@
     tools:context=".Main_Menus.Explore"
     android:background="@drawable/explore_image">
 
-    <Button
-    android:layout_marginLeft="285dp"
-    android:layout_marginTop="50dp"
-    android:id="@+id/menu_button"
-    android:text="Main Menu"
-    android:textSize="15sp"
-    android:textStyle="bold"
-    android:textColor="#ffffff"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:backgroundTint="#FF73602A"/>
-
 
     <Button
         android:layout_width="100dp"
@@ -26,7 +14,7 @@
         android:id="@+id/beerBtn"
         android:layout_alignBottom="@+id/BeerView"
         android:layout_toStartOf="@+id/BeerView"
-        android:background="@mipmap/ic_launcher_beer"/>
+        android:background="@mipmap/ic_beer"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,7 +33,7 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="@mipmap/ic_launcher_wine"
+        android:background="@mipmap/ic_wine_final"
         android:id="@+id/wineBtn"
         android:layout_marginStart="67dp"
         android:layout_above="@+id/MixedView"
@@ -65,7 +53,7 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="@mipmap/ic_launcher_mixed"
+        android:background="@mipmap/ic_mixed"
         android:id="@+id/mixedDrinksBtn"
         android:layout_marginBottom="59dp"
         android:layout_alignParentBottom="true"
@@ -88,5 +76,18 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:textSize="20dp"/>
+
+    <Button
+        android:layout_marginLeft="285dp"
+        android:id="@+id/menu_button"
+        android:text="Main Menu"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF73602A"
+        android:layout_alignTop="@+id/search_result"
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>
