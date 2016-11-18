@@ -1,9 +1,8 @@
-# Project-2
 
 # What'll It Be. . .
-
+<p align="center"> 
 <img src ="https://github.com/Keyner32/Project-2/blob/master/icon_image.png?raw=true" alt="Pin Icon" width="200" height="200">
-
+</p>
 ## Synopsis
 
 This application will let the user find about a variety of drinks in world. You are fronted by two different activity's the **My Drinks** activity or **Explore** activity. The **My Drinks** activity will show you your previously saved drinks and will be able to add more to them when ever. As well as being able to input your own made drinks as long as it has a `Name / Type of Alcohol / ABV / Description`.The **Explore** button will list the most popular drinks names ranging from **BEERS**, **WINES**, **MIXED DRINKS**. 
